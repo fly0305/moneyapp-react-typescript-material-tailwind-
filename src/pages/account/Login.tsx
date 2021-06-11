@@ -48,6 +48,7 @@ class LoginPage extends React.Component<ILoginProps, ILoginState> {
         return (
             <div className={classes.container}>
                 <Paper className={classes.paper}>
+                    <h1>EasyRent DB Admin</h1>
                     <h2>{'Login'}</h2>
                     <FormControl required={true} fullWidth={true} className={classes.field}>
                         <InputLabel htmlFor="email">Email Address</InputLabel>
