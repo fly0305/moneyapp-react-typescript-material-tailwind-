@@ -1,7 +1,7 @@
 import * as React from 'react';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
+import Room from '@material-ui/icons/Room';
+import Message from '@material-ui/icons/Message';
+import People from '@material-ui/icons/People';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import { Drawer, IconButton, Divider, Theme, ListItem, ListItemIcon, ListItemText, withStyles } from '@material-ui/core';
@@ -24,9 +24,9 @@ interface IAppDrawer {
 class AppDrawer extends React.Component<IAppDrawer, {}> {
     public routes = [
         { path: '/', title: 'Dashboard', icon: () => <DashboardIcon /> },
-        { path: '/mail/inbox', title: 'Inbox', icon: () => <InboxIcon /> },
-        { path: '/mail/sent', title: 'Sent', icon: () => <SendIcon /> },
-        { path: '/mail/drafts', title: 'Drafts', icon: () => <DraftsIcon /> },
+        { path: '/user', title: 'User', icon: () => <People /> },
+        { path: '/listing', title: 'Listing', icon: () => <Room /> },
+        { path: '/enquiry', title: 'Enquiry', icon: () => <Message /> },
         { path: '/account', title: 'Profile', icon: () => <AccountCircleIcon /> }
     ]
 

@@ -35,9 +35,9 @@ export class MailPage extends React.Component<IMailProps, {}> {
         return (
         <Switch>
             <Route path="/mail" exact={true} render={this.renderInbox} />
-            <Route path="/mail/inbox" render={this.renderInbox} />
-            <Route path="/mail/sent" render={this.renderSent} />
-            <Route path="/mail/drafts" render={this.renderDrafts} />
+            <Route path="/user" render={this.renderInbox} />
+            <Route path="/listing" render={this.renderSent} />
+            <Route path="/enquiry" render={this.renderDrafts} />
         </Switch>);
     }
 

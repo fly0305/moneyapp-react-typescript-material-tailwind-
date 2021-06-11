@@ -178,7 +178,7 @@ class MiniDrawer extends React.Component<IAppProps, IState> {
               <MenuIcon />
             </IconButton>
             <Typography className={classes.fillSpace} variant="title" color="inherit" noWrap={true}>
-              Tomahawk
+              EasyRent NZ Database Admin
             </Typography>
             <div>
               <IconButton
