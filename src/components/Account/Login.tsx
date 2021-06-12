@@ -44,7 +44,8 @@ const Login: React.FC = () => {
                 <div className="col-lg-6">
                   <div className="p-5">
                     <div className="text-center">
-                      <h1 className="h4 text-gray-900 mb-4">Welcome!</h1>
+                      <h1 className="h4 text-gray-900 mb-4">EasyRent NZ</h1>
+                      <h2 className="h4 text-gray-900 mb-4">Database Admin</h2>
                     </div>
                     <form className="user" onSubmit={submit}>
                       <div className="form-group">
