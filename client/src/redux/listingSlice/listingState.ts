@@ -1,4 +1,3 @@
-  
 import { ListingDetailsDto, ListingSummaryDto } from '../../api/client';
 
 type ListingState = {
