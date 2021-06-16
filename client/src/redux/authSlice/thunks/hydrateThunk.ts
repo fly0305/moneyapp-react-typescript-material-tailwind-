@@ -1,8 +1,6 @@
 import Auth from '@aws-amplify/auth';
 import { ActionReducerMapBuilder, createAsyncThunk } from '@reduxjs/toolkit';
-import mixpanel from 'mixpanel-browser';
 import { ApiClient } from '../../../api/client';
-import pic from '../../../assets/image/default.jpg';
 import AuthState from '../AuthState';
 
 export const hydrateAuth = createAsyncThunk('auth/hydrate', async () => {
@@ -14,7 +12,7 @@ export const hydrateAuth = createAsyncThunk('auth/hydrate', async () => {
     name: user.attributes.name || '',
     token: user.signInUserSession.accessToken.jwtToken,
     email: user.attributes.email || '',
-    picture: user.attributes.picture || pic,
+    picture: user.attributes.picture,
     groups: user.signInUserSession.idToken.payload['cognito:groups'],
     username: user.attributes.sub,
     fistName: user.attributes.given_name,
@@ -24,10 +22,6 @@ export const hydrateAuth = createAsyncThunk('auth/hydrate', async () => {
 
 export const hydrateAuthReducers = (builder: ActionReducerMapBuilder<AuthState>) => {
   builder.addCase(hydrateAuth.fulfilled, (state, { payload }) => {
-    mixpanel.identify(payload.username);
-    mixpanel.people.set({ $name: payload.name, $email: payload.email });
-    mixpanel.set_group('Groups', payload.groups);
-
     state.isHydrated = true;
     state.isAuthenticated = true;
     state.isConfirmed = true;

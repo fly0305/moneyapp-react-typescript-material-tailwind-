@@ -1,8 +1,6 @@
 import Auth from '@aws-amplify/auth';
 import { ActionReducerMapBuilder, createAsyncThunk } from '@reduxjs/toolkit';
-import mixpanel from 'mixpanel-browser';
 import { ApiClient } from '../../../api/client';
-import pic from '../../../assets/image/default.jpg';
 import state from '../AuthState';
 interface loginThunkInterface {
   username: string;
@@ -20,7 +18,7 @@ export const login = createAsyncThunk<any, loginThunkInterface>(
       name: user.attributes.name || '',
       token: user.signInUserSession.accessToken.jwtToken,
       email: user.attributes.email || '',
-      picture: user.attributes.picture || pic,
+      picture: user.attributes.picture,
       groups: user.signInUserSession.idToken.payload['cognito:groups'],
       username: user.attributes.sub,
       fistName: user.attributes.given_name,
@@ -31,10 +29,6 @@ export const login = createAsyncThunk<any, loginThunkInterface>(
 
 export const loginThunkReducers = (builder: ActionReducerMapBuilder<state>) => {
   builder.addCase(login.fulfilled, (state, { payload }) => {
-    mixpanel.identify(payload.username);
-    mixpanel.people.set({ name: payload.name, email: payload.email });
-    mixpanel.set_group('Groups', payload.groups);
-
     state.isAuthenticated = true;
     state.isConfirmed = true;
     state.user = payload;

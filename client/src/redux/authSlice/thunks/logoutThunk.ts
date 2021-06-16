@@ -1,13 +1,11 @@
 import Auth from '@aws-amplify/auth';
 import { ActionReducerMapBuilder, createAsyncThunk } from '@reduxjs/toolkit';
-import mixpanel from 'mixpanel-browser';
 import { ApiClient } from '../../../api/client';
 import AuthState from '../AuthState';
 
 export const logout = createAsyncThunk<any>(
   'auth/logout',
   async (): Promise<any> => {
-    mixpanel.track('Signed Out');
     await Auth.signOut();
 
     ApiClient.clearToken();
