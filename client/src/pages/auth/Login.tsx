@@ -1,46 +1,80 @@
+
 import React from 'react';
-import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
 import TextField from '@material-ui/core/TextField';
-import useAuthRedirect from '../../hooks/useAuthRedirect';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
+import Button from '@material-ui/core/Button';
 
-interface LoginFields {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  repeatPassword: string;
-}
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        container: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: 400,
+            margin: `${theme.spacing(0)} auto`
+        },
+        loginBtn: {
+            marginTop: theme.spacing(2),
+            flexGrow: 1
+        },
+        header: {
+            textAlign: 'center',
+            background: '#212121',
+            color: '#fff'
+        },
+        card: {
+            marginTop: theme.spacing(10)
+        }
+    })
+);
 
-const field: { [k in keyof LoginFields]: string } = {
-  firstName: 'firstName',
-  lastName: 'lastName',
-  email: 'email',
-  password: 'password',
-  repeatPassword: 'repeatPassword',
-};
+//state type
+// demo component link: https://github.com/creativesuraj/react-material-ui-login
 
 const Login: React.FC = () => {
-  useAuthRedirect();
-  return (
-    <>
-      <Typography variant={'h1'} className={'mb-4'}>
-        EasyRent CMS Login
-      </Typography>
-      <TextField name={field.email} label={'Email'} type={'email'} />
-      <TextField name={field.password} label={'Password'} type={'password'} />
-      <Button className={'my-5 w-full'} type={'submit'}>
-        Login
-      </Button>
-      <div>
-        New Admin?
-        <Link to={'/signup'}>
-          <Button>Register</Button>
-        </Link>
-      </div>
-    </>
-  );
-};
+    const classes = useStyles();
+
+    return (
+        <form className={classes.container} noValidate autoComplete="off">
+            <Card className={classes.card}>
+                <CardHeader className={classes.header} title="Login App" />
+                <CardContent>
+                    <div>
+                        <TextField
+                            fullWidth
+                            id="username"
+                            type="email"
+                            label="Username"
+                            placeholder="Username"
+                            margin="normal"
+                        />
+                        <TextField
+                            fullWidth
+                            id="password"
+                            type="password"
+                            label="Password"
+                            placeholder="Password"
+                            margin="normal"
+                        />
+                    </div>
+                </CardContent>
+                <CardActions>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        color="secondary"
+                        className={classes.loginBtn}
+                    >
+                        Login
+                    </Button>
+                </CardActions>
+            </Card>
+        </form>
+    );
+}
 
 export default Login;

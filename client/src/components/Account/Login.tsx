@@ -18,7 +18,7 @@ const Login: React.FC = () => {
 
   function submit(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
-    if(isFormInvalid()) { return; }
+    if (isFormInvalid()) { return; }
     dispatch(login(formState.email.value));
   }
 
@@ -45,7 +45,7 @@ const Login: React.FC = () => {
                   <div className="p-5">
                     <div className="text-center">
                       <h1 className="h4 text-gray-900 mb-4">EasyRent NZ</h1>
-                      <h2 className="h4 text-gray-900 mb-4">Database Admin</h2>
+                      <h2 className="h4 text-gray-900 mb-4">CMS Admin</h2>
                     </div>
                     <form className="user" onSubmit={submit}>
                       <div className="form-group">
