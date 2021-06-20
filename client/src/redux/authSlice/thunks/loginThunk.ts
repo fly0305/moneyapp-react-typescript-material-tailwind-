@@ -1,7 +1,6 @@
 import Auth from '@aws-amplify/auth';
 import { ActionReducerMapBuilder, createAsyncThunk } from '@reduxjs/toolkit';
 import { ApiClient } from '../../../api/client';
-import pic from '../../../assets/image/default.jpg';
 import state from '../AuthState';
 interface loginThunkInterface {
   username: string;
@@ -19,7 +18,7 @@ export const login = createAsyncThunk<any, loginThunkInterface>(
       name: user.attributes.name || '',
       token: user.signInUserSession.accessToken.jwtToken,
       email: user.attributes.email || '',
-      picture: user.attributes.picture || pic,
+      picture: user.attributes.picture || '',
       groups: user.signInUserSession.idToken.payload['cognito:groups'],
       username: user.attributes.sub,
       fistName: user.attributes.given_name,
