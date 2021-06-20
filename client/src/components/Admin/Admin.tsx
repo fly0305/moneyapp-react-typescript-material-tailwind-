@@ -11,8 +11,6 @@ import Home from "../Home/Home";
 import Notifications from "../../common/components/Notification";
 
 //custom components import
-import Login from "../../pages/auth/Login";
-import Signup from "../../pages/auth/Signup";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import User from "../../pages/user/User";
 import Listing from "../../pages/listing/Listing";
@@ -33,16 +31,13 @@ const Admin: React.FC = () => {
           <div className="container-fluid">
             <Switch>
               {/* custom routes */}
-              <Route path="/login"><Login /></Route>
-              <Route path="/signup"><Signup /></Route>
-              <Route path="/dashboard"><Dashboard /></Route>
+              <Route exact path="/"><Dashboard /></Route>
               <Route path={"/user"}><User /></Route>
               <Route path={"/listing"}><Listing /></Route>
               <Route path={"/enquiry"}><Enquiry /></Route>
               <Route path={"/matching"}><Matching /></Route>
               <Route path={"/content"}><Content /></Route>
               <Route path={"/performance"}><Performance /></Route>
-              <Route path="/test"><Login /></Route>
 
               {/* old routes */}
               <Route path={`/home`}><Home /></Route>

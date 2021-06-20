@@ -27,7 +27,7 @@ const LeftMenu: React.FC = () => {
                 <img src={logo} className={"topbar"} alt="#" />
                 <hr className="sidebar-divider my-0" />
                 <li className="nav-item active">
-                    <Link className="nav-link" to="Home">
+                    <Link className="nav-link" to={"/"}>
                         <i className="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </Link>
