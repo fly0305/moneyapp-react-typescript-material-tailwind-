@@ -16,8 +16,10 @@ import Signup from "../../pages/auth/Signup";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import User from "../../pages/user/User";
 import Listing from "../../pages/listing/Listing";
+import Matching from "../../pages/matching/Matching";
 import Content from "../../pages/analytics/Content";
 import Performance from "../../pages/analytics/Performance";
+import Enquiry from "../../pages/enquiry/Enquiry";
 
 const Admin: React.FC = () => {
 
@@ -36,6 +38,8 @@ const Admin: React.FC = () => {
               <Route path="/dashboard"><Dashboard /></Route>
               <Route path={"/user"}><User /></Route>
               <Route path={"/listing"}><Listing /></Route>
+              <Route path={"/enquiry"}><Enquiry /></Route>
+              <Route path={"/matching"}><Matching /></Route>
               <Route path={"/content"}><Content /></Route>
               <Route path={"/performance"}><Performance /></Route>
               <Route path="/test"><Login /></Route>

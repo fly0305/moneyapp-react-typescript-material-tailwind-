@@ -22,22 +22,17 @@ const Home: React.FC = () => {
 
   return (
     <Fragment>
-      <h1 className="h3 mb-2 text-gray-800">Dashboard</h1>
-      <p className="mb-4">Summary and overview of our admin stuff here</p>
-
+      <h1 className="h3 mb-2 text-gray-800">Default Dashboard</h1>
       <div className="row">
         <TopCard title="PRODUCT COUNT" text={`${numberItemsCount}`} icon="box" class="primary" />
         <TopCard title="PRODUCT AMOUNT" text={`${totalProductAmount}`} icon="warehouse" class="danger" />
         <TopCard title="SUMMARY PRICE" text={`$${totalPrice}`} icon="dollar-sign" class="success" />
       </div>
-
       <div className="row">
         <TopCard title="SALES" text={totalSales.toString()} icon="donate" class="primary" />
         <TopCard title="ORDER AMOUNT" text={totalOrderAmount.toString()} icon="calculator" class="danger" />
       </div>
-
       <div className="row">
-
         <div className="col-xl-6 col-lg-6">
           <div className="card shadow mb-4">
             <div className="card-header py-3">
@@ -47,9 +42,7 @@ const Home: React.FC = () => {
               <ProductList />
             </div>
           </div>
-
         </div>
-
         <div className="col-xl-6 col-lg-6">
           <div className="card shadow mb-4">
             <div className="card-header py-3">
@@ -60,11 +53,8 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-
       </div>
-
     </Fragment>
   );
 };
-
 export default Home;
