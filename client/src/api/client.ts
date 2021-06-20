@@ -57,6 +57,18 @@ export interface ListingFormDataDto {
   availableFrom: string;
 }
 
+export interface UpdateUserProfileDto {
+  photo?: Blob;
+  first_name?: string;
+  last_name?: string;
+}
+
+export interface UpdateUserProfileResponse {
+  picture?: string;
+  firstName?: string;
+  lastName?: string;
+}
+
 export class ApiClient {
   static token?: string;
 
@@ -158,5 +170,27 @@ export class ApiClient {
       url: `wishlist/remove/${listingId}`,
       method: 'post',
     });
+  }
+
+  static async updateUserInfo(data: UpdateUserProfileDto): Promise<UpdateUserProfileResponse> {
+    const formData = new FormData();
+    Object.entries(data).forEach(([k, v]) => {
+      if (v !== undefined) {
+        formData.append(k, v);
+      }
+    });
+
+    const res = await axios({
+      baseURL: process.env.REACT_APP_API_URL,
+      url: `user/details`,
+      headers: {
+        Authorization: this.token,
+        'Content-Type': 'multipart/form-data',
+      },
+      method: 'patch',
+      data: formData,
+    });
+
+    return res.data;
   }
 }

@@ -19,10 +19,7 @@ const authSlice = createSlice({
   reducers: {
     googleLogin: (state, action) => {
       Auth.federatedSignIn({ provider: 'Google' } as any);
-    },
-    facebookLogin: (state, action) => {
-      Auth.federatedSignIn({ provider: 'Facebook' } as any);
-    },
+    }
   },
   extraReducers: (builder) => {
     hydrateAuthReducers(builder);
@@ -36,6 +33,6 @@ const authSlice = createSlice({
 
 const { reducer, actions } = authSlice;
 
-export const { googleLogin, facebookLogin } = actions;
+export const { googleLogin } = actions;
 
 export default reducer;
