@@ -3,10 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 
 interface Auth0ProviderWithHistoryProps {
-  children: React.FC;
+  prop: any;
 }
 
-const Auth0ProviderWithHistory: React.FC<Auth0ProviderWithHistoryProps> = ({ children }) => {
+const Auth0ProviderWithHistory = (props: React.PropsWithChildren<Auth0ProviderWithHistoryProps>) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN || 'test';
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || 'test';
 
@@ -23,7 +23,7 @@ const Auth0ProviderWithHistory: React.FC<Auth0ProviderWithHistoryProps> = ({ chi
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
     >
-      {children}
+      {props.children}
     </Auth0Provider>
   );
 };
