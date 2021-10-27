@@ -19,14 +19,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
-    "paths": {
-      "@/*": ["*"],
-      "@/components": ["components/*"],
-      "@/pages": ["pages/*"],
-      "@/redux": ["redux/*"],
-      "@/api": ["api/*"],
-    }
+    "importHelpers": true,
+    "baseUrl": "src"
   },
   "include": [
     "src"

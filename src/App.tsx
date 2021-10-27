@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import AuthenticationButton from './components/auth/AuthenticationButton';
 
 
 const App = () => {
   return (
-      <h1>React</h1>
+    <AuthenticationButton />
   );
 }
 
