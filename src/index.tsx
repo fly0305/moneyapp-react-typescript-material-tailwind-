@@ -6,11 +6,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Auth0ProviderWithHistory from './components/auth/Auth0Provider'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Router>
-      <Auth0ProviderWithHistory prop={<App />} />
+      <Auth0ProviderWithHistory>
+        <App />
+      </Auth0ProviderWithHistory>
     </Router>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 
