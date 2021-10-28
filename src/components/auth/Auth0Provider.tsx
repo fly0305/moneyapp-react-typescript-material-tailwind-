@@ -2,17 +2,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-interface Auth0ProviderWithHistoryProps {
-  prop: any;
-}
-
-const Auth0ProviderWithHistory = (props: React.PropsWithChildren<Auth0ProviderWithHistoryProps>) => {
-  const domain = process.env.REACT_APP_AUTH0_DOMAIN || 'test';
-  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || 'test';
+const Auth0ProviderWithHistory = ({ children }: any) => {
+  const domain = process.env.REACT_APP_AUTH0_DOMAIN || 'not_provided';
+  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || 'not_provided';
 
   console.table({
       "domain": domain,
-      "clientId": clientId
+      "clientId": clientId,
   })
 
   const history = useHistory();
@@ -28,7 +24,7 @@ const Auth0ProviderWithHistory = (props: React.PropsWithChildren<Auth0ProviderWi
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
     >
-      {props.children}
+      {children}
     </Auth0Provider>
   );
 };

@@ -8,7 +8,9 @@ import Auth0ProviderWithHistory from './components/auth/Auth0Provider'
 ReactDOM.render(
   <React.Fragment>
     <Router>
-      <Auth0ProviderWithHistory prop={<App />} />
+      <Auth0ProviderWithHistory>
+        <App />
+      </Auth0ProviderWithHistory>
     </Router>
   </React.Fragment>,
   document.getElementById('root')
