@@ -5,7 +5,9 @@ import AuthenticationButton from './components/auth/AuthenticationButton';
 
 const App = () => {
   return (
-    <AuthenticationButton />
+    <>
+      <AuthenticationButton />
+    </>
   );
 }
 
