@@ -2,7 +2,8 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import AuthenticationButton from '../components/auth/AuthenticationButton';
 import { Button } from '@mui/material';
-// import jwt_decode from 'jwt-decode';
+import * as dotenv from 'dotenv';
+dotenv.config({ path: __dirname + '/.env' });
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface DashboardProps {}
