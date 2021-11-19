@@ -6,11 +6,7 @@ import Dashboard from 'pages/Dashboard';
 
 const App: React.FC = () => {
   const { isAuthenticated } = useAuth0();
-  return (
-    <>
-      {!isAuthenticated ? <AuthenticationButton /> : <Dashboard />}
-    </>
-  );
-}
+  return <>{!isAuthenticated ? <AuthenticationButton /> : <Dashboard />}</>;
+};
 
 export default App;
