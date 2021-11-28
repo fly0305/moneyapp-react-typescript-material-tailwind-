@@ -15,7 +15,7 @@
 - Global date-range picker that updates agregated data for all charts (exl, time-series)
 - Time-series composed bar chart for monthly income vs expenses (starts Jan 2021)
 - Time-series composed area chart for daily income vs expenses (starts 2021/01/01)
-- - Time-series composed line chart for weekly income vs expenses (starts 2021/01/01)
+- Time-series composed line chart for weekly income vs expenses (starts 2021/01/01)
 - Flat lines of calculated monthly+daily+weekly average income & expenses on all time-series chart
 - Scattered chart for instances of income & expense over time (count)
 - Pie chart for income by payment method
