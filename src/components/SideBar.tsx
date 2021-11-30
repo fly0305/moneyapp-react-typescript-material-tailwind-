@@ -6,18 +6,15 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import PaidIcon from '@mui/icons-material/Paid';
 import MenuIcon from '@mui/icons-material/Menu';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export default function SideBar() {
   const [state, setState] = React.useState({
-    top: false,
     left: false,
-    bottom: false,
-    right: false,
   });
 
   const toggleDrawer =
@@ -45,7 +42,7 @@ export default function SideBar() {
         {['Income', 'Expenses'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {index % 2 === 0 ? <PaidIcon /> : <ShoppingCartIcon />}
             </ListItemIcon>
             <ListItemText primary={text} color="white" />
           </ListItem>
