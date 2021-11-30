@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from '@mui/material';
 import * as dotenv from 'dotenv';
 import TopBar from 'components/TopBar';
+import BasicDateRangePicker from 'components/DaterangePicker';
 dotenv.config({ path: __dirname + '/.env' });
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -30,6 +31,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
       <h2>Welcome back, {user?.name}</h2>
       <h2>Your personal finance analytics at a glance</h2>
       <Button onClick={copyToken}>Copy Token</Button>
+      <BasicDateRangePicker />
     </>
   );
 };
