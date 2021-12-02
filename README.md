@@ -9,7 +9,7 @@
 - State management with Redux toolkit
 - Eslint + Prettier for  pre-commit linting
 - Styling with Material-UI and TailwindCSS
-- Data visualisation with Apex charts, Chart.js and Recharts
+- Data visualisation with [Apex charts](https://apexcharts.com/docs/react-charts/), [Chart.js](https://react-chartjs-2.netlify.app/examples) and Recharts
 
 ## ✨ Features
 ### General
