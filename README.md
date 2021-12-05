@@ -16,8 +16,8 @@
 - Global date-range picker that updates agregated data for all charts (exl, time-series)
 
 ### Dynamic charts
-| Chart type | Description |
-| :--- | :---- | :--- |
+| Chart type | Description | Status |
+| :--- | :---- |
 | Time-series composed bar chart | For monthly income vs expenses (starts Jan 2021)|
 | Time-series composed area chart   | For daily income vs expenses (starts 2021/01/01) |
 | Time-series composed line chart  | for weekly income vs expenses (starts 2021/01/01) |
