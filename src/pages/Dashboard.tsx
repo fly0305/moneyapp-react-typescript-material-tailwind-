@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Button, Grid } from '@mui/material';
+import { Button, Container, Grid } from '@mui/material';
 import * as dotenv from 'dotenv';
 import TopBar from 'components/TopBar';
 import BasicDateRangePicker from 'components/DaterangePicker';
@@ -29,25 +29,28 @@ const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <>
       <TopBar />
-      <h1>Dashboard page</h1>
-      <h2>Welcome back, {user?.name}</h2>
-      <h2>Your personal finance analytics at a glance</h2>
-      <Button onClick={copyToken}>Copy Token</Button>
-      <BasicDateRangePicker />
-      <Grid container spacing={3}>
-        <Grid item lg={6} sm={6}>
-          <ChartContainer
-            title={'Scattered chart'}
-            component={<ScatteredChart />}
-          />
+      <Container maxWidth="xl">
+        <h2>Welcome back, {user?.name}</h2>
+        <Button onClick={copyToken}>Copy Token</Button>
+        <BasicDateRangePicker />
+        <Grid container spacing={4}>
+          <Grid item lg={6} sm={6} xs={12}>
+            <ChartContainer
+              title={'Scattered chart'}
+              component={<ScatteredChart />}
+            />
+          </Grid>
+          <Grid item lg={6} sm={6} xs={12}>
+            <ChartContainer
+              title={'Scattered chart'}
+              component={<ScatteredChart />}
+            />
+          </Grid>
         </Grid>
-        <Grid item lg={6} sm={6}>
-          <ChartContainer
-            title={'Scattered chart'}
-            component={<ScatteredChart />}
-          />
-        </Grid>
-      </Grid>
+      </Container>
+      <button className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
+        Button
+      </button>
     </>
   );
 };

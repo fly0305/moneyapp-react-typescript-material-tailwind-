@@ -3,6 +3,7 @@ import './App.css';
 import AuthenticationButton from './components/auth/AuthenticationButton';
 import { useAuth0 } from '@auth0/auth0-react';
 import Dashboard from 'pages/Dashboard';
+import 'tailwindcss/tailwind.css';
 
 const App: React.FC = () => {
   const { isAuthenticated } = useAuth0();
