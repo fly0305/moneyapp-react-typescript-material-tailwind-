@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import * as dotenv from 'dotenv';
 import TopBar from 'components/TopBar';
 import BasicDateRangePicker from 'components/DaterangePicker';
-import { ScatteredDatetimeChart } from 'components/charts/ScatteredDatetimeChart';
+import ScatteredChart from 'components/charts/ScatteredChart';
 dotenv.config({ path: __dirname + '/.env' });
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -33,7 +33,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
       <h2>Your personal finance analytics at a glance</h2>
       <Button onClick={copyToken}>Copy Token</Button>
       <BasicDateRangePicker />
-      <ScatteredDatetimeChart />
+      <ScatteredChart />
     </>
   );
 };
