@@ -1,29 +1,36 @@
+import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+import faker from 'faker';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 );
 
 export const options = {
-  indexAxis: 'x' as const, // y = horizontal, x or undefined is vertical
   responsive: true,
   plugins: {
     legend: {
       position: 'top' as const,
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Line Chart',
     },
   },
 };
@@ -35,23 +42,19 @@ export const data = {
   datasets: [
     {
       label: 'Dataset 1',
-      data: [21, 62, 3, 4, 5, 21, 13],
-      //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
     {
       label: 'Dataset 2',
-      data: [11, 22, 63, 24, 15, 43, 15],
-      //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: 'rgb(53, 162, 235)',
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
   ],
 };
 
-export interface BarChartProps {
-  type: 'horizontal' | 'vertical';
+export function LineChart() {
+  return <Line options={options} data={data} />;
 }
-
-export const BarChart = () => {
-  return <Bar options={options} data={data} />;
-};

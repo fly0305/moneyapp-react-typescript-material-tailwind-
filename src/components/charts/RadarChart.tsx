@@ -24,9 +24,16 @@ export const data = {
   datasets: [
     {
       label: '# of Votes',
-      data: [2, 9, 3, 5, 2, 3],
+      data: [22, 89, 70, 80, 60, 49],
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1,
+    },
+    {
+      label: '# of Votes',
+      data: [72, 15, 33, 25, 52, 63],
+      backgroundColor: 'rgba(255, 159, 64, 0.2)',
+      borderColor: 'rgba(66, 215, 245)',
       borderWidth: 1,
     },
   ],

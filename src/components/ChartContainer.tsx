@@ -10,7 +10,7 @@ export const ChartContainer: React.FC<ChartContainerProps> = ({
   component,
 }) => {
   return (
-    <Card>
+    <Card variant="outlined">
       <CardContent>
         <Typography variant="h5" gutterBottom>
           {title}
