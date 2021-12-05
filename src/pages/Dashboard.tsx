@@ -36,13 +36,13 @@ const Dashboard: React.FC<DashboardProps> = () => {
         <Grid container spacing={4}>
           <Grid item lg={6} sm={6} xs={12}>
             <ChartContainer
-              title={'Scattered chart'}
+              title={'Income vs Expenses'}
               component={<ScatteredChart />}
             />
           </Grid>
           <Grid item lg={6} sm={6} xs={12}>
             <ChartContainer
-              title={'Scattered chart'}
+              title={'Nunber of times earned & spent money'}
               component={<ScatteredChart />}
             />
           </Grid>
