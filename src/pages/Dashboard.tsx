@@ -1,10 +1,11 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import * as dotenv from 'dotenv';
 import TopBar from 'components/TopBar';
 import BasicDateRangePicker from 'components/DaterangePicker';
 import ScatteredChart from 'components/charts/ScatteredChart';
+import { ChartContainer } from 'components/ChartContainer';
 dotenv.config({ path: __dirname + '/.env' });
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -33,7 +34,20 @@ const Dashboard: React.FC<DashboardProps> = () => {
       <h2>Your personal finance analytics at a glance</h2>
       <Button onClick={copyToken}>Copy Token</Button>
       <BasicDateRangePicker />
-      <ScatteredChart />
+      <Grid container spacing={3}>
+        <Grid item lg={6} sm={6}>
+          <ChartContainer
+            title={'Scattered chart'}
+            component={<ScatteredChart />}
+          />
+        </Grid>
+        <Grid item lg={6} sm={6}>
+          <ChartContainer
+            title={'Scattered chart'}
+            component={<ScatteredChart />}
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };
