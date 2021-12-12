@@ -38,7 +38,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
   useEffect(() => {
     if (data) console.log(`data: ${data}`);
     else if (loading) console.log(`Loading: ${loading}`);
-    else if (error) console.log(`Error: ${error}`);
+    else if (error) console.log(error);
   }, [data, loading, error]);
 
   return (
