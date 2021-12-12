@@ -6,7 +6,6 @@
 - Authentication with Auth0 SDK
 - Routing with React-Router
 - Apollo client for interacting with GraphQL server
-- State management with Redux toolkit
 - Eslint + Prettier for  pre-commit linting
 - Styling with Material-UI and TailwindCSS
 - Data visualisation with [Apex charts](https://apexcharts.com/docs/react-charts/), [Chart.js](https://react-chartjs-2.netlify.app/examples) and Recharts
