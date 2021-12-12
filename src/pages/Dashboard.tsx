@@ -33,11 +33,13 @@ const Dashboard: React.FC<DashboardProps> = () => {
     navigator.clipboard.writeText(`${token}`);
   };
 
-  const { data } = useQuery(INCOME_BY_PAYMENT_METHOD);
+  const { data, loading, error } = useQuery(INCOME_BY_PAYMENT_METHOD);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    if (data) console.log(`data: ${data}`);
+    else if (loading) console.log(`Loading: ${loading}`);
+    else if (error) console.log(`Error: ${error}`);
+  }, [data, loading, error]);
 
   return (
     <>

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.5",
+    "@apollo/link-context": "^2.0.0-beta.3",
     "@auth0/auth0-react": "^1.8.0",
     "@craco/craco": "^6.4.2",
     "@emotion/react": "^11.5.0",
