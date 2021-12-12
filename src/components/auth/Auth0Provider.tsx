@@ -9,11 +9,6 @@ const Auth0ProviderWithHistory = ({ children }: any) => {
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || 'not_provided';
   const audience = process.env.REACT_APP_AUTH0_AUDIENCE || 'not_provided';
 
-  console.table({
-    domain: domain,
-    clientId: clientId,
-  });
-
   const history = useHistory();
 
   const onRedirectCallback = (appState: any) => {

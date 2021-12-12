@@ -15,6 +15,7 @@ import { ComposedChart } from 'components/charts/ComposedChart';
 import { StackedBarChart } from 'components/charts/StackedBarChart';
 import { useQuery } from '@apollo/client';
 import { INCOME_BY_PAYMENT_METHOD } from '../graphql/Queries';
+import Loading from './Loading';
 dotenv.config({ path: __dirname + '/.env' });
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -40,6 +41,8 @@ const Dashboard: React.FC<DashboardProps> = () => {
     else if (loading) console.log(`Loading: ${loading}`);
     else if (error) console.log(error);
   }, [data, loading, error]);
+
+  if (loading) return <Loading />;
 
   return (
     <>
