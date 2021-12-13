@@ -1,6 +1,7 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import { IncomeGroupByQuery } from 'graphql/Queries.dto';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -31,6 +32,12 @@ export const data = {
   ],
 };
 
-export default function PieChart() {
-  return <Pie data={data} />;
+interface PieChartProps {
+  dataset?: IncomeGroupByQuery[];
 }
+
+const PieChart: React.FC<PieChartProps> = ({ dataset }) => {
+  return <Pie data={data} />;
+};
+
+export default PieChart;
