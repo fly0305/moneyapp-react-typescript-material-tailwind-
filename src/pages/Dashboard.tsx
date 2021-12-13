@@ -14,7 +14,7 @@ import { LineChart } from 'components/charts/LineChart';
 import { ComposedChart } from 'components/charts/ComposedChart';
 import { StackedBarChart } from 'components/charts/StackedBarChart';
 import { useQuery } from '@apollo/client';
-import { INCOME_BY_PAYMENT_METHOD } from '../graphql/Queries';
+import { INCOME_BY_PAIDBY } from '../graphql/Queries';
 import Loading from './Loading';
 dotenv.config({ path: __dirname + '/.env' });
 
@@ -34,10 +34,10 @@ const Dashboard: React.FC<DashboardProps> = () => {
     navigator.clipboard.writeText(`${token}`);
   };
 
-  const { data, loading, error } = useQuery(INCOME_BY_PAYMENT_METHOD);
+  const { data, loading, error } = useQuery(INCOME_BY_PAIDBY);
 
   useEffect(() => {
-    if (data) console.log(`data: ${data}`);
+    if (data) console.log(data);
     else if (loading) console.log(`Loading: ${loading}`);
     else if (error) console.log(error);
   }, [data, loading, error]);
