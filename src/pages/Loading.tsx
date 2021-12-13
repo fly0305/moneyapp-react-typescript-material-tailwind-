@@ -1,12 +1,16 @@
+import CircularProgress from '@mui/material/CircularProgress';
+
 const Loading = () => {
   return (
-    <div
-      id="loading-screen"
-      className="hidden w-full h-full fixed top-0 left-0 bg-white opacity-75 z-50"
-    >
-      <span className="text-green-500 opacity-75 top-1/2 my-0 mx-auto block relative w-0 h-0">
-        <i className="fas fa-circle-notch fa-spin fa-5x"></i>
-      </span>
+    <div className="flex h-screen">
+      <div className="m-auto">
+        <span className="visually-hidden content-center items-center place-items-center">
+          <CircularProgress />
+          <p className="antialiased text-2xl font-bold">
+            Making some more money...
+          </p>
+        </span>
+      </div>
     </div>
   );
 };

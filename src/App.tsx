@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import AuthenticationButton from './components/auth/AuthenticationButton';
 import { useAuth0 } from '@auth0/auth0-react';
 import Dashboard from 'pages/Dashboard';
 import 'tailwindcss/tailwind.css';
@@ -11,10 +10,12 @@ import {
   HttpLink,
 } from '@apollo/client';
 import * as dotenv from 'dotenv';
+import Login from 'pages/Login';
+import Loading from 'pages/Loading';
 dotenv.config({ path: __dirname + '.env' });
 
 const App: React.FC = () => {
-  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently, isLoading } = useAuth0();
   const [token, setToken] = useState<string>('');
 
   useEffect(() => {
@@ -39,9 +40,11 @@ const App: React.FC = () => {
     cache: new InMemoryCache(),
   });
 
+  if (isLoading) return <Loading />;
+
   return (
     <ApolloProvider client={client}>
-      {!isAuthenticated ? <AuthenticationButton /> : <Dashboard />}
+      {!isAuthenticated ? <Login /> : <Dashboard />}
     </ApolloProvider>
   );
 };

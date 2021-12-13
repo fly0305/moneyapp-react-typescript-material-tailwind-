@@ -48,7 +48,9 @@ const Dashboard: React.FC<DashboardProps> = () => {
     <>
       <TopBar />
       <Container maxWidth="xl">
-        <h2>Welcome back, {user?.name}</h2>
+        <h2>
+          Welcome back, {user?.name} - {user?.email}
+        </h2>
         <Button onClick={copyToken}>Copy Token</Button>
         <BasicDateRangePicker />
         <Grid container spacing={4}>
