@@ -41,6 +41,6 @@ export const data = {
   ],
 };
 
-export default function ScatteredChart() {
+export function ScatteredChart() {
   return <Scatter options={options} data={data} />;
 }

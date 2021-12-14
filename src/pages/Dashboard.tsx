@@ -4,24 +4,21 @@ import { Button, Container, Grid } from '@mui/material';
 import * as dotenv from 'dotenv';
 import TopBar from 'components/TopBar';
 import BasicDateRangePicker from 'components/DaterangePicker';
-import ScatteredChart from 'components/charts/ScatteredChart';
 import { ChartContainer } from 'components/ChartContainer';
-import { BarChart } from 'components/charts/BarChart';
-import { RadarChart } from 'components/charts/RadarChart';
 import PieChart from 'components/charts/PieChart';
-import DoughnutChart from 'components/charts/DoughnutChart';
-import { LineChart } from 'components/charts/LineChart';
-import { ComposedChart } from 'components/charts/ComposedChart';
-import { StackedBarChart } from 'components/charts/StackedBarChart';
+// import { BarChart } from 'components/charts/BarChart';
+// import { ScatteredChart } from 'components/charts/ScatteredChart';
+// import { RadarChart } from 'components/charts/RadarChart';
+// import DoughnutChart from 'components/charts/DoughnutChart';
+// import { LineChart } from 'components/charts/LineChart';
+// import { ComposedChart } from 'components/charts/ComposedChart';
+// import { StackedBarChart } from 'components/charts/StackedBarChart';
 import { useQuery } from '@apollo/client';
 import { INCOME_BY_PAIDBY } from '../graphql/Queries';
-import Loading from './Loading';
+import { IncomeGroupByQueryResponse } from 'graphql/Queries.dto';
 dotenv.config({ path: __dirname + '/.env' });
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface DashboardProps {}
-
-const Dashboard: React.FC<DashboardProps> = () => {
+const Dashboard: React.FC = () => {
   let token = '';
   const { user, getAccessTokenSilently } = useAuth0();
   const getToken = async () => {
@@ -34,15 +31,20 @@ const Dashboard: React.FC<DashboardProps> = () => {
     navigator.clipboard.writeText(`${token}`);
   };
 
-  const { data, loading, error } = useQuery(INCOME_BY_PAIDBY);
+  const { data, loading, error } =
+    useQuery<IncomeGroupByQueryResponse>(INCOME_BY_PAIDBY);
 
   useEffect(() => {
-    if (data) console.log(data);
+    if (data) console.log(`data fetched!`);
     else if (loading) console.log(`Loading: ${loading}`);
     else if (error) console.log(error);
   }, [data, loading, error]);
 
-  if (loading) return <Loading />;
+  const d = data?.incomeGroupBy;
+  const labels = d?.map((item) => item.incomePaidBy);
+  const values = d?.map((item) => item.sum);
+  console.log(labels);
+  console.log(values);
 
   return (
     <>
@@ -56,56 +58,8 @@ const Dashboard: React.FC<DashboardProps> = () => {
         <Grid container spacing={4}>
           <Grid item lg={6} sm={6} xs={12}>
             <ChartContainer
-              title={'Income vs Expenses'}
-              component={<ScatteredChart />}
-            />
-          </Grid>
-          <Grid item lg={6} sm={6} xs={12}>
-            <ChartContainer
-              title={'Expenses by type'}
-              component={<LineChart />}
-            />
-          </Grid>
-          <Grid item lg={6} sm={6} xs={12}>
-            <ChartContainer
-              title={'Income by payee'}
-              component={<BarChart />}
-            />
-          </Grid>
-          <Grid item lg={6} sm={6} xs={12}>
-            <ChartContainer
-              title={'Nunber of times earned & spent money'}
-              component={<ScatteredChart />}
-            />
-          </Grid>
-          <Grid item lg={4} sm={6} xs={12}>
-            <ChartContainer
-              title={'Expenses by sub-type'}
-              component={<RadarChart />}
-            />
-          </Grid>
-          <Grid item lg={4} sm={6} xs={12}>
-            <ChartContainer
-              title={'Income by payment method'}
-              component={<DoughnutChart />}
-            />
-          </Grid>
-          <Grid item lg={4} sm={6} xs={12}>
-            <ChartContainer
-              title={'Income by currency'}
-              component={<PieChart />}
-            />
-          </Grid>
-          <Grid item lg={6} sm={12} xs={12}>
-            <ChartContainer
-              title={'Monthly income & expense & average income'}
-              component={<ComposedChart />}
-            />
-          </Grid>
-          <Grid item lg={6} sm={12} xs={12}>
-            <ChartContainer
-              title={'Monthly expenses by type'}
-              component={<StackedBarChart />}
+              title={'Income paid by'}
+              component={<PieChart labels={labels} values={values} />}
             />
           </Grid>
         </Grid>

@@ -1,4 +1,8 @@
-export interface IncomeGroupByQuery {
+export interface IncomeGroupByQueryResponse {
+  incomeGroupBy: IncomeGroupByQueryBody[];
+}
+
+export interface IncomeGroupByQueryBody {
   incomePaidBy?: string;
   incomePaymentMethod?: string;
   incomeType?: string;
