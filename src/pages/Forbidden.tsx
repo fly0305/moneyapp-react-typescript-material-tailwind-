@@ -1,6 +1,8 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import AuthenticationButton from 'components/auth/AuthenticationButton';
 
 const Forbidden = () => {
+  const { user } = useAuth0();
   return (
     <div
       className="
@@ -26,7 +28,8 @@ const Forbidden = () => {
           </h6>
 
           <p className="mb-8 text-center text-gray-500 md:text-lg">
-            You do not have access to this MoneyApp
+            Sorry <strong>{user?.name}</strong>, you do not have access to this
+            MoneyApp
           </p>
           <AuthenticationButton />
         </div>

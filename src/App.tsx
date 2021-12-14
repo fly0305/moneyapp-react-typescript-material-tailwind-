@@ -20,7 +20,6 @@ dotenv.config({ path: __dirname + '.env' });
 const App: React.FC = () => {
   const { isAuthenticated, getAccessTokenSilently, isLoading } = useAuth0();
   const [token, setToken] = useState<string>('');
-  const [permissions, setPermissions] = useState<string[] | undefined>(['']);
 
   useEffect(() => {
     const getToken = async () => {
@@ -43,27 +42,18 @@ const App: React.FC = () => {
     }),
     cache: new InMemoryCache(),
   });
-  const user: DecodedJwt = jwt(token);
 
-  if (isAuthenticated) {
-    console.log(`user authenticated, token => ${token}`);
-    setPermissions(user?.permissions);
-    console.log(permissions?.length);
-    if (permissions?.length === 0) return <Forbidden />;
+  if (!isAuthenticated) return <Login />;
+  else if (isLoading) return <Loading />;
+  else if (token !== '') {
+    const decodedUser: DecodedJwt = jwt(token);
+    if (decodedUser.permissions?.length === 0) return <Forbidden />;
   }
-
-  switch (isAuthenticated) {
-    case false:
-      return <Login />;
-    case true:
-      if (isLoading) return <Loading />;
-      else
-        return (
-          <ApolloProvider client={client}>
-            <Dashboard />
-          </ApolloProvider>
-        );
-  }
+  return (
+    <ApolloProvider client={client}>
+      <Dashboard />
+    </ApolloProvider>
+  );
 };
 
 export default App;
