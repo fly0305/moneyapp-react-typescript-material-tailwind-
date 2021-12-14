@@ -1,14 +1,16 @@
 # MoneyApp Frontend
 
 ## 🛠️ Technologies used
-
-- TypeScript!
-- Authentication with Auth0 SDK
-- Routing with React-Router
-- Apollo client for interacting with GraphQL server
-- Eslint + Prettier for  pre-commit linting
-- Styling with Material-UI and TailwindCSS
-- Data visualisation with [Apex charts](https://apexcharts.com/docs/react-charts/), [Chart.js](https://react-chartjs-2.netlify.app/examples) and Recharts
+| Purpose | Tool |
+| :--- | :---- |
+| Language | TypeScript |
+| Authentication | Auth0 SDK |
+| Routing | React-Router |
+| State management | Apollo client |
+| Developer experience (Linting) | Eslint + Prettier |
+| Styling - structure | Material-UI |
+| Styling - details | TailwindCSS |
+| Charts | [Apex charts](https://apexcharts.com/docs/react-charts/) & [Chart.js](https://react-chartjs-2.netlify.app/examples) & [Recharts](https://recharts.org/en-US/examples) |
 
 ##  ✍️ How charts getting updated - Architecture approach
 1. `Dashboard` passes down date-range (`startDate` and `endDate`) to specified chart components as props
