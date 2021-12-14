@@ -43,8 +43,6 @@ const Dashboard: React.FC = () => {
   const d = data?.incomeGroupBy;
   const labels = d?.map((item) => item.incomePaidBy);
   const values = d?.map((item) => item.sum);
-  console.log(labels);
-  console.log(values);
 
   return (
     <>
