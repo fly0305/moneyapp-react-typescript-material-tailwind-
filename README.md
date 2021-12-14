@@ -10,6 +10,13 @@
 - Styling with Material-UI and TailwindCSS
 - Data visualisation with [Apex charts](https://apexcharts.com/docs/react-charts/), [Chart.js](https://react-chartjs-2.netlify.app/examples) and Recharts
 
+##  ✍️ How charts getting updated - Architecture approach
+1. `Dashboard` passes down date-range (`startDate` and `endDate`) to specified chart components as props
+2. Charts receive date-range as props from Dashboard
+3. Each chart populates date range into `gql` query
+4. The new `gql` query will be used to call data from API using `useQuery` from `Apollo`
+5. The returned query response will be extracted and modified to fit chart type within each chart component
+
 ## ✨ Features
 ### General
 - Global date-range picker that updates agregated data for all charts (exl, time-series)
