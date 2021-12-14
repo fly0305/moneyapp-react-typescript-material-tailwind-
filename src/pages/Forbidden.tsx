@@ -19,11 +19,14 @@ const Forbidden = () => {
           <h1 className="font-bold text-blue-600 text-9xl">403</h1>
 
           <h6 className="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
-            <span className="text-red-500">Oops!</span>Forbidden resource
+            <span className="text-red-500">
+              Oops!<br></br>
+            </span>
+            Forbidden resource
           </h6>
 
           <p className="mb-8 text-center text-gray-500 md:text-lg">
-            You do not have access to this page
+            You do not have access to this MoneyApp
           </p>
           <AuthenticationButton />
         </div>
