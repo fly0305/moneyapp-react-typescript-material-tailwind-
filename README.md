@@ -12,12 +12,12 @@
 | ✅ Styling - details | TailwindCSS |
 | ✅ Charts | [Apex charts](https://apexcharts.com/docs/react-charts/) & [Chart.js](https://react-chartjs-2.netlify.app/examples) & [Recharts](https://recharts.org/en-US/examples) |
 
-##  ✍️ How charts getting updated - Architecture approach
-1. `Dashboard` passes down date-range (`startDate` and `endDate`) to specified chart components as props
-2. Charts receive date-range as props from Dashboard
-3. Each chart populates date range into `gql` query
-4. The new `gql` query will be used to call data from API using `useQuery` from `Apollo`
-5. The returned query response will be extracted and modified to fit chart type within each chart component
+##  ✍️ How are charts getting updated - Architecture approach
+1. `GlobalDatePicker` from `Dashboard` updates the `Reactive variables` date-range (aka `startDate` and `endDate`)  stored in `Apollo client`
+3. Custom chart wrapper (e.g, `IncomeByPaymentMethod` which uses `LineChart.tsx`) takes date-range (`reactive variables`) from apollo client and populate them into their own `gql` queries as arguments
+4. Custom chart wrappers pass down fetched & processed data (`labels` and `values`) into `pure chart components`
+5. Each pure chart components populate data (no manual calculation involved)
+6. All chart wrapper that use `reactive variables` will update queries (so will charts update) whenever date-range changes in `Apollo client` store
 
 ## ✨ Features
 ### General
