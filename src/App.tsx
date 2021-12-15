@@ -3,18 +3,14 @@ import './App.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import Dashboard from 'pages/Dashboard';
 import 'tailwindcss/tailwind.css';
-import {
-  ApolloProvider,
-  ApolloClient,
-  InMemoryCache,
-  HttpLink,
-} from '@apollo/client';
+import { ApolloProvider, ApolloClient, HttpLink } from '@apollo/client';
 import * as dotenv from 'dotenv';
 import Login from 'pages/Login';
 import Loading from 'pages/Loading';
 import jwt from 'jwt-decode';
 import { DecodedJwt } from 'auth0/Auth0.dto';
 import Forbidden from 'pages/Forbidden';
+import { Cache, startDateVar, endDateVar } from './graphql/Cache';
 dotenv.config({ path: __dirname + '.env' });
 
 const App: React.FC = () => {
@@ -40,8 +36,10 @@ const App: React.FC = () => {
         Authorization: `Bearer ${token}`,
       },
     }),
-    cache: new InMemoryCache(),
+    cache: Cache,
   });
+
+  console.log(startDateVar, endDateVar);
 
   if (!isAuthenticated) return <Login />;
   else if (isLoading) return <Loading />;

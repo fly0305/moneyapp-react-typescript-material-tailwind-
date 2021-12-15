@@ -5,7 +5,7 @@ export const INCOME_BY_PAYMENT_METHOD = gql`
     incomeGroupBy(
       field: "paymentMethod"
       valueType: "sum"
-      dateStartInc: "Fri Jan 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
+      dateStartInc: "Thu Apr 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
       dateEndInc: "Sun Nov 21 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
     ) {
       incomePaymentMethod
@@ -19,7 +19,7 @@ export const INCOME_BY_PAIDBY = gql`
     incomeGroupBy(
       field: "paidBy"
       valueType: "sum"
-      dateStartInc: "Fri Jan 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
+      dateStartInc: "Thu Apr 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
       dateEndInc: "Sun Nov 21 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
     ) {
       incomePaidBy
@@ -33,7 +33,7 @@ export const INCOME_BY_TYPE = gql`
     incomeGroupBy(
       field: "incomeType"
       valueType: "sum"
-      dateStartInc: "Fri Jan 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
+      dateStartInc: "Thu Apr 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
       dateEndInc: "Sun Nov 21 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
     ) {
       incomeType
