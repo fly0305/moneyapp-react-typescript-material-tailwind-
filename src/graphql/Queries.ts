@@ -19,8 +19,8 @@ export const INCOME_BY_PAIDBY = gql`
     incomeGroupBy(
       field: "paidBy"
       valueType: "sum"
-      dateStartInc: "Mon Feb 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
-      dateEndInc: "Sun Nov 21 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
+      dateStartInc: startDate @client
+      dateEndInc: endDate @client
     ) {
       incomePaidBy
       sum
