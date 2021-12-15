@@ -10,7 +10,7 @@ import Loading from 'pages/Loading';
 import jwt from 'jwt-decode';
 import { DecodedJwt } from 'auth0/Auth0.dto';
 import Forbidden from 'pages/Forbidden';
-import { Cache, startDateVar, endDateVar } from './graphql/Cache';
+import { Cache } from './graphql/Cache';
 dotenv.config({ path: __dirname + '.env' });
 
 const App: React.FC = () => {
@@ -38,8 +38,6 @@ const App: React.FC = () => {
     }),
     cache: Cache,
   });
-
-  console.log(startDateVar, endDateVar);
 
   if (!isAuthenticated) return <Login />;
   else if (isLoading) return <Loading />;
