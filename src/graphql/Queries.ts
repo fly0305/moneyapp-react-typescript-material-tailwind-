@@ -15,7 +15,7 @@ export const INCOME_BY_PAYMENT_METHOD = gql`
 `;
 
 export const INCOME_BY_PAIDBY = gql`
-  query INCOME_BY_PAIDBY($startDate: Date, $endDate: Date) {
+  query INCOME_BY_PAIDBY($startDate: DateTime, $endDate: DateTime) {
     incomeGroupBy(
       field: "paidBy"
       valueType: "sum"

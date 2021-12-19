@@ -1,6 +1,7 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import { CircularProgress } from '@mui/material';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -34,10 +35,12 @@ export const demoData = {
 interface PieChartProps {
   labels?: (string | undefined)[];
   values?: (number | undefined)[];
+  loading?: boolean;
 }
 
-const PieChart: React.FC<PieChartProps> = ({ labels, values }) => {
+const PieChart: React.FC<PieChartProps> = ({ labels, values, loading }) => {
   if (!labels && !values) return <Pie data={demoData} />;
+  else if (loading) return <CircularProgress />;
   const data = {
     labels: labels,
     datasets: [

@@ -6,7 +6,10 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Box from '@mui/material/Box';
 
 export default function BasicDateRangePicker() {
-  const [value, setValue] = React.useState<DateRange<Date>>([null, null]);
+  const [value, setValue] = React.useState<DateRange<Date>>([
+    new Date('2021-01-01'),
+    new Date(),
+  ]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
