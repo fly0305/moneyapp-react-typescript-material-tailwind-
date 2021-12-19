@@ -15,12 +15,12 @@ export const INCOME_BY_PAYMENT_METHOD = gql`
 `;
 
 export const INCOME_BY_PAIDBY = gql`
-  query INCOME_BY_PAIDBY {
+  query INCOME_BY_PAIDBY($startDate: Date, $endDate: Date) {
     incomeGroupBy(
       field: "paidBy"
       valueType: "sum"
-      dateStartInc: "Mon Feb 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
-      dateEndInc: "Sun Nov 21 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
+      dateStartInc: $startDate
+      dateEndInc: $endDate
     ) {
       incomePaidBy
       sum

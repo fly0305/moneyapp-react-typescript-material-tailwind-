@@ -31,8 +31,15 @@ const Dashboard: React.FC = () => {
     navigator.clipboard.writeText(`${token}`);
   };
 
-  const { data, loading, error } =
-    useQuery<IncomeGroupByQueryResponse>(INCOME_BY_PAIDBY);
+  // const startDate = new Date('2021-01-01').toISOString();
+  // const endDate = new Date().toISOString();
+
+  const { data, loading, error } = useQuery<IncomeGroupByQueryResponse>(
+    INCOME_BY_PAIDBY,
+    // {
+    //   variables: { startDate, endDate },
+    // },
+  );
 
   useEffect(() => {
     if (data) console.log(`data fetched!`);
