@@ -41,3 +41,17 @@ export const INCOME_BY_TYPE = gql`
     }
   }
 `;
+
+export const INCOME_BY_DATE = gql`
+  query INCOME_BY_DATE($startDate: DateTime, $endDate: DateTime) {
+    incomeGroupBy(
+      field: "date"
+      valueType: "sum"
+      dateStartInc: $startDate
+      dateEndInc: $endDate
+    ) {
+      date
+      sum
+    }
+  }
+`;

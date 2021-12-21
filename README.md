@@ -25,8 +25,14 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | 5 | All chart wrapper that use `reactive variables` will update queries (so will charts update) whenever date-range changes in `Apollo client` store
 
 ## ✨ Features
+
 ### General
-- Global date-range picker that updates agregated data for all charts (exl, time-series)
+| Category | Feature | Status |
+| :--- | :---- | :---- |
+| Date-range picker | Updates global date range values, which in tern will update all components that are using global date-range values | ✅ |
+| Card | Display total income between selected date-range | ⌛ |
+| Card | Display total expenses between selected date-range | ⌛ |
+| Card | Display net-income between selected date-range | ⌛ |
 
 ### Dynamic charts
 | Chart type | Description | Status |
