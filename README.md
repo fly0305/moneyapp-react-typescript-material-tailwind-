@@ -29,16 +29,17 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 - Global date-range picker that updates agregated data for all charts (exl, time-series)
 
 ### Dynamic charts
-| Chart type | Description |
-| :--- | :---- |
-| Time-series composed bar chart | For monthly income vs expenses (starts Jan 2021)|
+| Chart type | Description | Status |
+| :--- | :---- | :---- |
+| Pie chart | For income by payment method | ✅ |
+| Doughnut chart | For income by income type | ✅ |
+| Doughnut chart | For income by "paid by" | ✅ |
+| Line chart | For daily income | ⌛ |
 | Time-series composed area chart   | For daily income vs expenses (starts 2021/01/01) |
+| Time-series composed bar chart | For monthly income vs expenses (starts Jan 2021)|
 | Time-series composed line chart  | for weekly income vs expenses (starts 2021/01/01) |
 | Flat line | For all time-series chart showing calculated monthly+daily+weekly average income & expenses|
 | Scattered chart | For instances of income & expense over time (count) |
-| Radar chart | For income by income type |
-| Pie chart | For income by payment method |
-| Pie chart | For income by "paid by" |
 | Pie chart | For income by currency |
 | Vertical bar chart | For expenses by type (sortable) |
 | Doughnut chart | For expenses by sub-type |

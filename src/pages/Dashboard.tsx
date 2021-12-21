@@ -7,6 +7,7 @@ import BasicDateRangePicker from 'components/DaterangePicker';
 import IncomePaidBy from 'components/reports/IncomePaidBy';
 import IncomeByType from 'components/reports/IncomeByType';
 import IncomeByPaymentMethod from 'components/reports/IncomeByPaymentMethod';
+import { ComposedChart } from 'components/charts/ComposedChart';
 dotenv.config({ path: __dirname + '/.env' });
 
 const Dashboard: React.FC = () => {
@@ -42,6 +43,7 @@ const Dashboard: React.FC = () => {
           <Grid item lg={4} sm={4} xs={12}>
             <IncomeByPaymentMethod />
           </Grid>
+          <ComposedChart />
         </Grid>
       </Container>
     </>
