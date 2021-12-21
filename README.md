@@ -15,15 +15,6 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | ✅ Styling - details | TailwindCSS |
 | ✅ Charts | [Apex charts](https://apexcharts.com/docs/react-charts/) & [Chart.js](https://react-chartjs-2.netlify.app/examples) & [Recharts](https://recharts.org/en-US/examples) |
 
-##  ✍️ How are charts getting updated - Architectural approach
-| No. | Steps
-| :--- | :--- |
-| 1 | `GlobalDatePicker` from `Dashboard` updates the `Reactive variables` date-range (aka `startDate` and `endDate`)  stored in `Apollo client` |
-| 2 | Custom chart wrapper (e.g, `IncomeByPaymentMethod` which uses `LineChart.tsx`) takes date-range (`reactive variables`) from apollo client and populate them into their own `gql` queries as arguments
-| 3 | Custom chart wrappers pass down fetched & processed data (`labels` and `values`) into `pure chart components`
-| 4 | Each pure chart components populate data (no manual calculation involved)
-| 5 | All chart wrapper that use `reactive variables` will update queries (so will charts update) whenever date-range changes in `Apollo client` store
-
 ## ✨ Features
 
 ### General
@@ -50,6 +41,15 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Vertical bar chart | For expenses by type (sortable) |
 | Doughnut chart | For expenses by sub-type |
 | Horizontal bar chart | For expenses by payment type |
+
+##  ✍️ How are charts getting updated - Architectural approach
+| No. | Steps
+| :--- | :--- |
+| 1 | `GlobalDatePicker` from `Dashboard` updates the `Reactive variables` date-range (aka `startDate` and `endDate`)  stored in `Apollo client` |
+| 2 | Custom chart wrapper (`/components/reports`) e.g, `IncomeByPaymentMethod` which uses `DoughnutChart`, takes date-range (`reactive variables`) from apollo client and populate them into their own `gql` queries as arguments
+| 3 | Custom chart wrappers pass down fetched & processed data (`labels` and `values`) into `pure chart components`
+| 4 | Each pure chart components populate data (no manual calculation involved)
+| 5 | All chart wrapper that use `reactive variables` will update queries (so will charts update) whenever date-range changes in `Apollo client` store
 
 ## ✨ Infrastructure
 - Netlify (CD\CI)
