@@ -1,10 +1,12 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { CircularProgress } from '@mui/material';
+import { ChartProps } from './Chart.dto';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
+export const demoData = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
     {
@@ -31,6 +33,22 @@ export const data = {
   ],
 };
 
-export default function DoughnutChart() {
+const DoughnutChart: React.FC<ChartProps> = ({ labels, values, loading }) => {
+  if (!labels && !values) return <Doughnut data={demoData} />;
+  else if (!labels || !values) return <CircularProgress />;
+  else if (loading) return <CircularProgress />;
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        data: values,
+        backgroundColor: demoData.datasets[0].backgroundColor,
+        borderColor: demoData.datasets[0].borderColor,
+        borderWidth: demoData.datasets[0].borderWidth,
+      },
+    ],
+  };
   return <Doughnut data={data} />;
-}
+};
+
+export default DoughnutChart;

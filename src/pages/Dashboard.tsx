@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv';
 import TopBar from 'components/TopBar';
 import BasicDateRangePicker from 'components/DaterangePicker';
 import IncomePaidBy from 'components/reports/IncomePaidBy';
+import IncomeByType from 'components/reports/IncomeByType';
 dotenv.config({ path: __dirname + '/.env' });
 
 const Dashboard: React.FC = () => {
@@ -31,8 +32,11 @@ const Dashboard: React.FC = () => {
         <BasicDateRangePicker />
         <br></br>
         <Grid container spacing={4}>
-          <Grid item lg={6} sm={6} xs={12}>
+          <Grid item lg={4} sm={4} xs={12}>
             <IncomePaidBy />
+          </Grid>
+          <Grid item lg={4} sm={4} xs={12}>
+            <IncomeByType />
           </Grid>
         </Grid>
       </Container>

@@ -9,6 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
+import { ChartProps } from './Chart.dto';
+import { CircularProgress } from '@mui/material';
 
 ChartJS.register(
   RadialLinearScale,
@@ -19,7 +21,7 @@ ChartJS.register(
   Legend,
 );
 
-export const data = {
+export const demoData = {
   labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
   datasets: [
     {
@@ -39,6 +41,22 @@ export const data = {
   ],
 };
 
-export function RadarChart() {
+const RadarChart: React.FC<ChartProps> = ({ labels, values, loading }) => {
+  if (!labels && !values) return <Radar data={demoData} />;
+  else if (!labels || !values) return <CircularProgress />;
+  else if (loading) return <CircularProgress />;
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        data: values,
+        backgroundColor: demoData.datasets[0].backgroundColor,
+        borderColor: demoData.datasets[0].borderColor,
+        borderWidth: demoData.datasets[0].borderWidth,
+      },
+    ],
+  };
   return <Radar data={data} />;
-}
+};
+
+export default RadarChart;
