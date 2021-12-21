@@ -29,6 +29,7 @@ const Dashboard: React.FC = () => {
         </h2>
         <Button onClick={copyToken}>Copy Token</Button>
         <BasicDateRangePicker />
+        <br></br>
         <Grid container spacing={4}>
           <Grid item lg={6} sm={6} xs={12}>
             <IncomePaidBy />

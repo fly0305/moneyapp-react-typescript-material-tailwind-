@@ -4,6 +4,9 @@ import DateRangePicker, { DateRange } from '@mui/lab/DateRangePicker';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Box from '@mui/material/Box';
+import { startDateVar, endDateVar } from 'graphql/Cache';
+import Stack from '@mui/material/Stack';
+import DaterangeFilterButton from './ApplyDaterangeFilterButton';
 
 export default function BasicDateRangePicker() {
   const [value, setValue] = React.useState<DateRange<Date>>([
@@ -11,23 +14,43 @@ export default function BasicDateRangePicker() {
     new Date(),
   ]);
 
+  // Only update UI date range display - not updating global date range
+  const updateDateRange = (dateRange: any) => {
+    setValue(dateRange);
+  };
+
+  // Updates global date-range store => all reports using global date-range will update
+  const applyDateRangeFilter = () => {
+    const start = startDateVar(value[0]?.toString());
+    const end = endDateVar(value[1]?.toString());
+    console.log(`newStart: ${start}`);
+    console.log(`newEnd: ${end}`);
+  };
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DateRangePicker
-        startText="Start"
-        endText="End"
-        value={value}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={(startProps, endProps) => (
-          <React.Fragment>
-            <TextField {...startProps} />
-            <Box sx={{ mx: 2 }}> to </Box>
-            <TextField {...endProps} />
-          </React.Fragment>
-        )}
-      />
-    </LocalizationProvider>
+    <Stack direction="row" spacing={2}>
+      <div>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DateRangePicker
+            startText="Start"
+            endText="End"
+            value={value}
+            onChange={(newValue) => {
+              updateDateRange(newValue);
+            }}
+            renderInput={(startProps, endProps) => (
+              <React.Fragment>
+                <TextField {...startProps} />
+                <Box sx={{ mx: 2 }}> to </Box>
+                <TextField {...endProps} />
+              </React.Fragment>
+            )}
+          />
+        </LocalizationProvider>
+      </div>
+      <div onClick={applyDateRangeFilter}>
+        <DaterangeFilterButton />
+      </div>
+    </Stack>
   );
 }

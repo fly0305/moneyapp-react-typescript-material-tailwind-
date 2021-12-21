@@ -1,12 +1,12 @@
 import { gql } from '@apollo/client';
 
 export const INCOME_BY_PAYMENT_METHOD = gql`
-  query INCOME_BY_PAYMENT_METHOD {
+  query INCOME_BY_PAYMENT_METHOD($startDate: DateTime, $endDate: DateTime) {
     incomeGroupBy(
       field: "paymentMethod"
       valueType: "sum"
-      dateStartInc: "Mon Feb 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
-      dateEndInc: "Sun Nov 21 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
+      dateStartInc: $startDate
+      dateEndInc: $endDate
     ) {
       incomePaymentMethod
       sum
@@ -29,12 +29,12 @@ export const INCOME_BY_PAIDBY = gql`
 `;
 
 export const INCOME_BY_TYPE = gql`
-  query INCOME_BY_TYPE {
+  query INCOME_BY_TYPE($startDate: DateTime, $endDate: DateTime) {
     incomeGroupBy(
       field: "incomeType"
       valueType: "sum"
-      dateStartInc: "Mon Feb 01 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
-      dateEndInc: "Sun Nov 21 2021 13:00:00 GMT+1300 (New Zealand Daylight Time)"
+      dateStartInc: $startDate
+      dateEndInc: $endDate
     ) {
       incomeType
       sum

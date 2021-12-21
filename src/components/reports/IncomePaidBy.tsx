@@ -1,16 +1,19 @@
 import { useQuery } from '@apollo/client';
-
 import { ChartContainer } from 'components/ChartContainer';
 import PieChart from 'components/charts/PieChart';
+import { startDateVar, endDateVar } from 'graphql/Cache';
 import { INCOME_BY_PAIDBY } from 'graphql/Queries';
 import { IncomeGroupByQueryResponse } from 'graphql/Queries.dto';
 
 const IncomePaidBy: React.FC = () => {
-  const s = new Date('2021-02-01');
-  const startDate = s;
-  const endDate = Date();
-  console.log(startDate);
+  // const s = new Date('2021-02-01');
+  const s = new Date(startDateVar());
+  const e = new Date(endDateVar());
 
+  const startDate = s;
+  const endDate = e;
+
+  // console.log(startDate, endDate);
   const { data, loading } = useQuery<IncomeGroupByQueryResponse>(
     INCOME_BY_PAIDBY,
     {
