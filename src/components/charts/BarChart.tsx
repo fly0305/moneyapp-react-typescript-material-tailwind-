@@ -28,7 +28,15 @@ export const options = {
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = [
+  'Type 1',
+  'Type 2',
+  'Type 3',
+  'Type 4',
+  'Type 5',
+  'Type 6',
+  'Type 7',
+];
 
 export const data = {
   labels,

@@ -4,7 +4,7 @@ import { blue } from '@mui/material/colors';
 
 const NetIncome = () => {
   return (
-    <Card sx={{ height: '100%' }} style={{ boxShadow: '4' }}>
+    <Card sx={{ height: '100%' }} variant="outlined">
       <CardContent>
         <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
           <Grid item>

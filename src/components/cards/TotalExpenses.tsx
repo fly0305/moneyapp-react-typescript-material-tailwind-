@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client';
-import PaidIcon from '@mui/icons-material/Paid';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { red } from '@mui/material/colors';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { EXPENSE_SUM } from 'graphql/Queries';
 import { ExpensesSumQueryResponse } from 'graphql/Queries.dto';
 
-const TotalExpenses = (props: any) => {
+const TotalExpenses = () => {
   const s = new Date(startDateVar());
   const e = new Date(endDateVar());
 
@@ -17,7 +17,7 @@ const TotalExpenses = (props: any) => {
   });
   const amount = data?.expenseSum[0].sum;
   return (
-    <Card sx={{ height: '100%' }} style={{ boxShadow: '4' }}>
+    <Card sx={{ height: '100%' }} variant="outlined">
       <CardContent>
         <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
           <Grid item>
@@ -36,7 +36,7 @@ const TotalExpenses = (props: any) => {
                 width: 56,
               }}
             >
-              <PaidIcon />
+              <ShoppingCartIcon />
             </Avatar>
           </Grid>
         </Grid>

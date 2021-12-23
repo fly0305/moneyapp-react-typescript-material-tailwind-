@@ -30,10 +30,6 @@ export const options = {
     legend: {
       position: 'top' as const,
     },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
   },
 };
 
@@ -77,6 +73,7 @@ const LineChart: React.FC<ChartProps> = ({ labels, values, loading }) => {
     labels: labels,
     datasets: [
       {
+        label: 'data',
         data: values,
         backgroundColor: demoData.datasets[0].backgroundColor,
         borderColor: demoData.datasets[0].borderColor,

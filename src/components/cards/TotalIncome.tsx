@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client';
-import PaidIcon from '@mui/icons-material/Paid';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { INCOME_SUM } from 'graphql/Queries';
 import { IncomeSumQueryResponse } from 'graphql/Queries.dto';
 
-const TotalIncome = (props: any) => {
+const TotalIncome = () => {
   const s = new Date(startDateVar());
   const e = new Date(endDateVar());
 
@@ -17,7 +17,7 @@ const TotalIncome = (props: any) => {
   });
   const amount = data?.incomeSum[0].sum;
   return (
-    <Card sx={{ height: '100%' }} style={{ boxShadow: '4' }}>
+    <Card sx={{ height: '100%' }} variant="outlined">
       <CardContent>
         <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
           <Grid item>
@@ -36,7 +36,7 @@ const TotalIncome = (props: any) => {
                 width: 56,
               }}
             >
-              <PaidIcon />
+              <ArrowCircleDownIcon />
             </Avatar>
           </Grid>
         </Grid>
