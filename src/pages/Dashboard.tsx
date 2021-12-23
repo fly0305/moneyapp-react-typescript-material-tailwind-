@@ -37,17 +37,14 @@ const Dashboard: React.FC = () => {
         <BasicDateRangePicker />
         <br></br>
         <Grid container spacing={4}>
-          <Grid item lg={3} sm={3} xs={6}>
+          <Grid item lg={4} sm={4} xs={12}>
             <TotalIncome />
           </Grid>
-          <Grid item lg={3} sm={3} xs={6}>
+          <Grid item lg={4} sm={4} xs={12}>
             <TotalExpenses />
           </Grid>
-          <Grid item lg={3} sm={3} xs={6}>
+          <Grid item lg={4} sm={4} xs={12}>
             <NetIncome />
-          </Grid>
-          <Grid item lg={3} sm={3} xs={6}>
-            <TotalIncome />
           </Grid>
           <Grid item lg={4} sm={4} xs={12}>
             <IncomePaidBy />

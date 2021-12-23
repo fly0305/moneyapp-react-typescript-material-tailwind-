@@ -24,6 +24,7 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Card | Display total income between selected date-range | ✅ |
 | Card | Display total expenses between selected date-range | ✅ |
 | Card | Display net-income between selected date-range | ✅ |
+| Animation | Auto-increment amounts on all cards from zero on page-load in 1s | ⌛ |
 
 ### Dynamic charts
 | Chart type | Description | Status |
