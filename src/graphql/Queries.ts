@@ -55,3 +55,11 @@ export const INCOME_BY_DATE = gql`
     }
   }
 `;
+
+export const INCOME_SUM = gql`
+  query INCOME_SUM($startDate: DateTime, $endDate: DateTime) {
+    incomeSum(startDate: $startDate, endDate: $endDate) {
+      sum
+    }
+  }
+`;

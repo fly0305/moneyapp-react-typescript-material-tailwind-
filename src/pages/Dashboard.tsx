@@ -8,6 +8,7 @@ import IncomePaidBy from 'components/reports/IncomePaidBy';
 import IncomeByType from 'components/reports/IncomeByType';
 import IncomeByPaymentMethod from 'components/reports/IncomeByPaymentMethod';
 import IncomeByDate from 'components/reports/IncomeByDate';
+import TotalIncome from 'components/cards/TotalIncome';
 dotenv.config({ path: __dirname + '/.env' });
 
 const Dashboard: React.FC = () => {
@@ -34,6 +35,18 @@ const Dashboard: React.FC = () => {
         <BasicDateRangePicker />
         <br></br>
         <Grid container spacing={4}>
+          <Grid item lg={3} sm={3} xs={6}>
+            <TotalIncome />
+          </Grid>
+          <Grid item lg={3} sm={3} xs={6}>
+            <TotalIncome />
+          </Grid>
+          <Grid item lg={3} sm={3} xs={6}>
+            <TotalIncome />
+          </Grid>
+          <Grid item lg={3} sm={3} xs={6}>
+            <TotalIncome />
+          </Grid>
           <Grid item lg={4} sm={4} xs={12}>
             <IncomePaidBy />
           </Grid>
