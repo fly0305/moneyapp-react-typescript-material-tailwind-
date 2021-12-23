@@ -13,8 +13,12 @@ export interface IncomeGroupByQueryBody {
   __typename?: string;
 }
 
-export interface IncomeExpensesSumQueryResponse {
+export interface IncomeSumQueryResponse {
   incomeSum: IncomeExpensesSumQueryBody[];
+}
+
+export interface ExpensesSumQueryResponse {
+  expenseSum: IncomeExpensesSumQueryBody[];
 }
 
 export interface IncomeExpensesSumQueryBody {

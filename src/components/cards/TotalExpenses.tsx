@@ -1,28 +1,28 @@
 import { useQuery } from '@apollo/client';
 import PaidIcon from '@mui/icons-material/Paid';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
-import { blue } from '@mui/material/colors';
+import { red } from '@mui/material/colors';
 import { startDateVar, endDateVar } from 'graphql/Cache';
-import { INCOME_SUM } from 'graphql/Queries';
-import { IncomeSumQueryResponse } from 'graphql/Queries.dto';
+import { EXPENSE_SUM } from 'graphql/Queries';
+import { ExpensesSumQueryResponse } from 'graphql/Queries.dto';
 
-const TotalIncome = (props: any) => {
+const TotalExpenses = (props: any) => {
   const s = new Date(startDateVar());
   const e = new Date(endDateVar());
 
   const startDate = s;
   const endDate = e;
-  const { data } = useQuery<IncomeSumQueryResponse>(INCOME_SUM, {
+  const { data } = useQuery<ExpensesSumQueryResponse>(EXPENSE_SUM, {
     variables: { startDate, endDate },
   });
-  const amount = data?.incomeSum[0].sum;
+  const amount = data?.expenseSum[0].sum;
   return (
     <Card sx={{ height: '100%' }} style={{ boxShadow: '4' }}>
       <CardContent>
         <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
           <Grid item>
             <Typography color="textSecondary" gutterBottom variant="h6">
-              Total Income
+              Total Expenses
             </Typography>
             <Typography color="textPrimary" variant="h5">
               $ {amount ? amount.toFixed(2) : 'Undefined'} NZD
@@ -31,7 +31,7 @@ const TotalIncome = (props: any) => {
           <Grid item>
             <Avatar
               sx={{
-                backgroundColor: blue[600],
+                backgroundColor: red[600],
                 height: 56,
                 width: 56,
               }}
@@ -44,4 +44,4 @@ const TotalIncome = (props: any) => {
     </Card>
   );
 };
-export default TotalIncome;
+export default TotalExpenses;

@@ -63,3 +63,11 @@ export const INCOME_SUM = gql`
     }
   }
 `;
+
+export const EXPENSE_SUM = gql`
+  query EXPENSE_SUM($startDate: DateTime, $endDate: DateTime) {
+    expenseSum(startDate: $startDate, endDate: $endDate) {
+      sum
+    }
+  }
+`;
