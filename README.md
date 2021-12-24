@@ -33,6 +33,10 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Doughnut chart | For income by income type | ✅ |
 | Doughnut chart | For income by "paid by" | ✅ |
 | Line chart | For daily income | ✅ |
+| Line chart | Accumulated income growth by date |
+| Line chart | Accumulated expenses by date |
+| Stacked bar chart | Monthly income by type |
+| Stacked bar chart | Monthly expenses by type |
 | Time-series composed area chart   | For daily income vs expenses (starts 2021/01/01) |
 | Time-series composed bar chart | For monthly income vs expenses (starts Jan 2021)|
 | Time-series composed line chart  | for weekly income vs expenses (starts 2021/01/01) |
