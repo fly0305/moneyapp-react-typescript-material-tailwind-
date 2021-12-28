@@ -4,6 +4,7 @@ import LineChart from 'components/charts/LineChart';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { INCOME_BY_DATE } from 'graphql/Queries';
 import { IncomeGroupByQueryResponse } from 'graphql/Queries.dto';
+import { cumulativeSum } from 'util/cumulativeSum';
 
 const IncomeByDate: React.FC = () => {
   const s = new Date(startDateVar());
@@ -22,12 +23,17 @@ const IncomeByDate: React.FC = () => {
   const d = data?.incomeGroupBy;
   const labels = d?.map((item) => item.date?.slice(0, 10));
   const values = d?.map((item) => item.sum);
+  const accumulatedValues = values?.map(cumulativeSum);
   return (
     <>
       <ChartContainer
-        title={'Daily Income'}
+        title={'Income growth'}
         component={
-          <LineChart labels={labels} values={values} loading={loading} />
+          <LineChart
+            labels={labels}
+            values={accumulatedValues}
+            loading={loading}
+          />
         }
       />
     </>

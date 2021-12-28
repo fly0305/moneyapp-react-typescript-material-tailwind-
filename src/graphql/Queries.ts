@@ -71,3 +71,16 @@ export const EXPENSE_SUM = gql`
     }
   }
 `;
+
+export const AVERAGE_DAILY_INCOME = gql`
+  query AVERAGE_DAILY_INCOME($dateStartInc: DateTime!, $dateEndInc: DateTime!) {
+    averageIncome(
+      type: "daily"
+      dateStartInc: $dateStartInc
+      dateEndInc: $dateEndInc
+    ) {
+      type
+      average
+    }
+  }
+`;

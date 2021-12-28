@@ -12,6 +12,8 @@ import TotalIncome from 'components/cards/TotalIncome';
 import TotalExpenses from 'components/cards/TotalExpenses';
 import NetIncome from 'components/cards/NetIncome';
 import ExpensesByType from 'components/reports/ExpensesByType';
+import AverageDailyIncome from 'components/cards/AverageDailyIncome';
+import AverageDailyExpenses from 'components/cards/AverageDailyExpenses';
 dotenv.config({ path: __dirname + '/.env' });
 
 const Dashboard: React.FC = () => {
@@ -48,6 +50,15 @@ const Dashboard: React.FC = () => {
             <NetIncome />
           </Grid>
           <Grid item lg={4} sm={4} xs={12}>
+            <AverageDailyIncome />
+          </Grid>
+          <Grid item lg={4} sm={4} xs={12}>
+            <AverageDailyExpenses />
+          </Grid>
+          <Grid item lg={4} sm={4} xs={12}>
+            <AverageDailyExpenses />
+          </Grid>
+          <Grid item lg={4} sm={4} xs={12}>
             <IncomePaidBy />
           </Grid>
           <Grid item lg={4} sm={4} xs={12}>
@@ -56,7 +67,7 @@ const Dashboard: React.FC = () => {
           <Grid item lg={4} sm={4} xs={12}>
             <IncomeByPaymentMethod />
           </Grid>
-          <Grid item lg={6} sm={6} xs={12}>
+          <Grid item lg={12} sm={12} xs={12}>
             <IncomeByDate />
           </Grid>
           <Grid item lg={6} sm={6} xs={12}>

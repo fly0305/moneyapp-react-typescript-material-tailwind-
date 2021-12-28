@@ -25,3 +25,12 @@ export interface IncomeExpensesSumQueryBody {
   __typename?: string;
   sum: number;
 }
+
+export interface AverageIncomeQueryResponse {
+  averageIncome: IncomeExpensesAverageQueryBody[];
+}
+
+export interface IncomeExpensesAverageQueryBody {
+  __typename?: string;
+  average?: number;
+}
