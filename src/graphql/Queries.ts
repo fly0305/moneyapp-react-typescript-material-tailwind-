@@ -88,3 +88,11 @@ export const NET_INCOME = gql`
     }
   }
 `;
+
+export const AVERAGE_DAILY_EXPENSES = gql`
+  query AVERAGE_DAILY_EXPENSES($startDate: DateTime!, $endDate: DateTime!) {
+    averageExpenses(startDate: $startDate, endDate: $endDate) {
+      average
+    }
+  }
+`;

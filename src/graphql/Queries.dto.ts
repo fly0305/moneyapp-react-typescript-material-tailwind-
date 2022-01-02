@@ -1,3 +1,4 @@
+// INCOME_BY_BLAHBLAH
 export interface IncomeGroupByQueryResponse {
   incomeGroupBy: IncomeGroupByQueryBody[];
 }
@@ -13,10 +14,12 @@ export interface IncomeGroupByQueryBody {
   __typename?: string;
 }
 
+// INCOME_SUM
 export interface IncomeSumQueryResponse {
   incomeSum: IncomeExpensesSumQueryBody[];
 }
 
+// EXPENSE_SUM
 export interface ExpensesSumQueryResponse {
   expenseSum: IncomeExpensesSumQueryBody[];
 }
@@ -26,8 +29,13 @@ export interface IncomeExpensesSumQueryBody {
   sum: number;
 }
 
+// AVERAGE_DAILY_INCOME
 export interface AverageIncomeQueryResponse {
   averageIncome: IncomeExpensesAverageQueryBody[];
+}
+
+export interface AverageExpensesQueryResponse {
+  averageExpenses: IncomeExpensesAverageQueryBody[];
 }
 
 export interface IncomeExpensesAverageQueryBody {
@@ -35,6 +43,7 @@ export interface IncomeExpensesAverageQueryBody {
   average?: number;
 }
 
+// NET_INCOME
 export interface NetIncomeQueryResponse {
   netIncome: NetIncomeQueryBody[];
 }
