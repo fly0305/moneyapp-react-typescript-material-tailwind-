@@ -15,7 +15,7 @@ const AverageDailyIncome = () => {
   const { data, loading } = useQuery<AverageIncomeQueryResponse>(
     AVERAGE_DAILY_INCOME,
     {
-      variables: { dateStartInc: startDate, dateEndInc: endDate },
+      variables: { startDate, endDate },
     },
   );
   const amount = data?.averageIncome[0].average;

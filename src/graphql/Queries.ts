@@ -5,8 +5,8 @@ export const INCOME_BY_PAYMENT_METHOD = gql`
     incomeGroupBy(
       field: "paymentMethod"
       valueType: "sum"
-      dateStartInc: $startDate
-      dateEndInc: $endDate
+      startDate: $startDate
+      endDate: $endDate
     ) {
       incomePaymentMethod
       sum
@@ -19,8 +19,8 @@ export const INCOME_BY_PAIDBY = gql`
     incomeGroupBy(
       field: "paidBy"
       valueType: "sum"
-      dateStartInc: $startDate
-      dateEndInc: $endDate
+      startDate: $startDate
+      endDate: $endDate
     ) {
       incomePaidBy
       sum
@@ -33,8 +33,8 @@ export const INCOME_BY_TYPE = gql`
     incomeGroupBy(
       field: "incomeType"
       valueType: "sum"
-      dateStartInc: $startDate
-      dateEndInc: $endDate
+      startDate: $startDate
+      endDate: $endDate
     ) {
       incomeType
       sum
@@ -47,8 +47,8 @@ export const INCOME_BY_DATE = gql`
     incomeGroupBy(
       field: "date"
       valueType: "sum"
-      dateStartInc: $startDate
-      dateEndInc: $endDate
+      startDate: $startDate
+      endDate: $endDate
     ) {
       date
       sum
@@ -73,12 +73,8 @@ export const EXPENSE_SUM = gql`
 `;
 
 export const AVERAGE_DAILY_INCOME = gql`
-  query AVERAGE_DAILY_INCOME($dateStartInc: DateTime!, $dateEndInc: DateTime!) {
-    averageIncome(
-      type: "daily"
-      dateStartInc: $dateStartInc
-      dateEndInc: $dateEndInc
-    ) {
+  query AVERAGE_DAILY_INCOME($startDate: DateTime!, $endDate: DateTime!) {
+    averageIncome(type: "daily", startDate: $startDate, endDate: $endDate) {
       type
       average
     }
