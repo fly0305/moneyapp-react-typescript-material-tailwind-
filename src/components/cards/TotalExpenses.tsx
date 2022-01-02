@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, useReactiveVar } from '@apollo/client';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { red } from '@mui/material/colors';
@@ -7,8 +7,8 @@ import { EXPENSE_SUM } from 'graphql/Queries';
 import { ExpensesSumQueryResponse } from 'graphql/Queries.dto';
 
 const TotalExpenses = () => {
-  const s = new Date(startDateVar());
-  const e = new Date(endDateVar());
+  const s = useReactiveVar(startDateVar);
+  const e = useReactiveVar(endDateVar);
 
   const startDate = s;
   const endDate = e;

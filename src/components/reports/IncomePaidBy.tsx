@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, useReactiveVar } from '@apollo/client';
 import { ChartContainer } from 'components/ChartContainer';
 import PieChart from 'components/charts/PieChart';
 import { startDateVar, endDateVar } from 'graphql/Cache';
@@ -7,8 +7,8 @@ import { IncomeGroupByQueryResponse } from 'graphql/Queries.dto';
 
 const IncomePaidBy: React.FC = () => {
   // const s = new Date('2021-02-01');
-  const s = new Date(startDateVar());
-  const e = new Date(endDateVar());
+  const s = useReactiveVar(startDateVar);
+  const e = useReactiveVar(endDateVar);
 
   const startDate = s;
   const endDate = e;

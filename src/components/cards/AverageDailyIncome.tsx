@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, useReactiveVar } from '@apollo/client';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
@@ -7,8 +7,8 @@ import { AVERAGE_DAILY_INCOME } from 'graphql/Queries';
 import { AverageIncomeQueryResponse } from 'graphql/Queries.dto';
 
 const AverageDailyIncome = () => {
-  const s = new Date(startDateVar());
-  const e = new Date(endDateVar());
+  const s = useReactiveVar(startDateVar);
+  const e = useReactiveVar(endDateVar);
 
   const startDate = s;
   const endDate = e;

@@ -21,10 +21,8 @@ export default function BasicDateRangePicker() {
 
   // Updates global date-range store => all reports using global date-range will update
   const applyDateRangeFilter = () => {
-    const start = startDateVar(value[0]?.toString());
-    const end = endDateVar(value[1]?.toString());
-    console.log(`newStart: ${start}`);
-    console.log(`newEnd: ${end}`);
+    startDateVar(value[0]?.toString());
+    endDateVar(value[1]?.toString());
   };
 
   return (
