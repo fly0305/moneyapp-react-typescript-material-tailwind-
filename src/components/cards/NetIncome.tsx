@@ -29,7 +29,10 @@ const NetIncome = () => {
               color={isPositive(amount) ? 'green' : 'red'}
               variant="h5"
             >
-              $ {loading ? 'Loading...' : amount} NZD
+              {isPositive(amount) ? '+ $ ' : '- $ '}
+              {loading
+                ? 'Loading...'
+                : amount?.toString().slice(1, amount.toString().length)}
             </Typography>
           </Grid>
           <Grid item>
