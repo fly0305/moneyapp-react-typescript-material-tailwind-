@@ -84,3 +84,11 @@ export const AVERAGE_DAILY_INCOME = gql`
     }
   }
 `;
+
+export const NET_INCOME = gql`
+  query NET_INCOME($startDate: DateTime, $endDate: DateTime) {
+    netIncome(startDate: $startDate, endDate: $endDate) {
+      sum
+    }
+  }
+`;

@@ -1,8 +1,22 @@
+import { useQuery, useReactiveVar } from '@apollo/client';
 import PaidIcon from '@mui/icons-material/Paid';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
+import { endDateVar, startDateVar } from 'graphql/Cache';
+import { NET_INCOME } from 'graphql/Queries';
+import { NetIncomeQueryResponse } from 'graphql/Queries.dto';
+import { isPositive } from 'util/isPositive';
 
 const NetIncome = () => {
+  const s = useReactiveVar(startDateVar);
+  const e = useReactiveVar(endDateVar);
+
+  const startDate = s;
+  const endDate = e;
+  const { data, loading } = useQuery<NetIncomeQueryResponse>(NET_INCOME, {
+    variables: { startDate, endDate },
+  });
+  const amount = data?.netIncome[0].sum;
   return (
     <Card sx={{ height: '100%' }} variant="outlined">
       <CardContent>
@@ -11,8 +25,11 @@ const NetIncome = () => {
             <Typography color="textSecondary" gutterBottom variant="h6">
               Net Income
             </Typography>
-            <Typography color="textPrimary" variant="h5">
-              + $ 748.29 NZD
+            <Typography
+              color={isPositive(amount) ? 'green' : 'red'}
+              variant="h5"
+            >
+              $ {loading ? 'Loading...' : amount} NZD
             </Typography>
           </Grid>
           <Grid item>

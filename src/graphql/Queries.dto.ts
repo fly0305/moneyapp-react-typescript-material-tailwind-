@@ -34,3 +34,12 @@ export interface IncomeExpensesAverageQueryBody {
   __typename?: string;
   average?: number;
 }
+
+export interface NetIncomeQueryResponse {
+  netIncome: NetIncomeQueryBody[];
+}
+
+export interface NetIncomeQueryBody {
+  __typename?: string;
+  sum?: number;
+}

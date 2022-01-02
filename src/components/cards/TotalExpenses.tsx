@@ -25,7 +25,7 @@ const TotalExpenses = () => {
               Total Expenses
             </Typography>
             <Typography color="textPrimary" variant="h5">
-              $ {amount ? amount.toFixed(2) : 'Undefined'} NZD
+              - $ {amount ? amount.toFixed(2) : 'Undefined'} NZD
             </Typography>
           </Grid>
           <Grid item>
