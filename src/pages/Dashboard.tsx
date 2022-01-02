@@ -49,13 +49,10 @@ const Dashboard: React.FC = () => {
           <Grid item lg={4} sm={4} xs={12}>
             <NetIncome />
           </Grid>
-          <Grid item lg={4} sm={4} xs={12}>
+          <Grid item lg={6} sm={6} xs={12}>
             <AverageDailyIncome />
           </Grid>
-          <Grid item lg={4} sm={4} xs={12}>
-            <AverageDailyExpenses />
-          </Grid>
-          <Grid item lg={4} sm={4} xs={12}>
+          <Grid item lg={6} sm={6} xs={12}>
             <AverageDailyExpenses />
           </Grid>
           <Grid item lg={4} sm={4} xs={12}>

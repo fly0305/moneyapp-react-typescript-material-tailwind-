@@ -14,6 +14,22 @@ export interface IncomeGroupByQueryBody {
   __typename?: string;
 }
 
+// EXPENSES_BY_BLAHBLAH
+export interface ExpensesGroupByQueryResponse {
+  expensesGroupBy: ExpensesGroupByQueryBody[];
+}
+
+export interface ExpensesGroupByQueryBody {
+  expenseType?: string;
+  expenseSubType?: string;
+  expensePaymentType?: string;
+  sum?: number;
+  count?: number;
+  currency?: string;
+  date?: string;
+  __typename?: string;
+}
+
 // INCOME_SUM
 export interface IncomeSumQueryResponse {
   incomeSum: IncomeExpensesSumQueryBody[];

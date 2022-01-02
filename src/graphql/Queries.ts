@@ -96,3 +96,17 @@ export const AVERAGE_DAILY_EXPENSES = gql`
     }
   }
 `;
+
+export const EXPENSES_BY_TYPE = gql`
+  query EXPENSES_BY_TYPE($startDate: DateTime, $endDate: DateTime) {
+    expensesGroupBy(
+      field: "type"
+      valueType: "sum"
+      startDate: $startDate
+      endDate: $endDate
+    ) {
+      expenseType
+      sum
+    }
+  }
+`;

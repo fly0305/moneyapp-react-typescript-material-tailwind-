@@ -5,7 +5,6 @@ import { useQuery, useReactiveVar } from '@apollo/client';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { AVERAGE_DAILY_EXPENSES } from 'graphql/Queries';
 import { AverageExpensesQueryResponse } from 'graphql/Queries.dto';
-import { isPositive } from 'util/isPositive';
 
 const AverageDailyExpenses = () => {
   const s = useReactiveVar(startDateVar);
@@ -28,14 +27,8 @@ const AverageDailyExpenses = () => {
             <Typography color="textSecondary" gutterBottom variant="h6">
               Average Daily Expenses
             </Typography>
-            <Typography
-              color={isPositive(amount) ? 'green' : 'red'}
-              variant="h5"
-            >
-              {isPositive(amount) ? '+ $ ' : '- $ '}
-              {loading
-                ? 'Loading...'
-                : amount?.toString().slice(1, amount.toString().length)}
+            <Typography color="red" variant="h5">
+              {loading ? 'Loading...' : `- $ ${amount}`}
             </Typography>
           </Grid>
           <Grid item>

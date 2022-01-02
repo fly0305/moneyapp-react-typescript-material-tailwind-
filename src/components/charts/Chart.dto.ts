@@ -11,3 +11,7 @@ export interface DataSet {
   borderColor?: string;
   backgroundColor?: string;
 }
+
+export interface BarChartProps extends ChartProps {
+  type: 'horizontal' | 'vertical';
+}
