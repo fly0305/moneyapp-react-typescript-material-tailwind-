@@ -124,3 +124,45 @@ export const EXPENSES_BY_DATE = gql`
     }
   }
 `;
+
+export const EXPENSES_BY_PAYMENT_TYPE = gql`
+  query EXPENSES_BY_PAYMENT_TYPE($startDate: DateTime, $endDate: DateTime) {
+    expensesGroupBy(
+      field: "paymentType"
+      valueType: "sum"
+      startDate: $startDate
+      endDate: $endDate
+    ) {
+      expensePaymentType
+      sum
+    }
+  }
+`;
+
+export const EXPENSES_BY_SUB_TYPE = gql`
+  query EXPENSES_BY_SUB_TYPE($startDate: DateTime, $endDate: DateTime) {
+    expensesGroupBy(
+      field: "subType"
+      valueType: "sum"
+      startDate: $startDate
+      endDate: $endDate
+    ) {
+      expenseSubType
+      sum
+    }
+  }
+`;
+
+export const EXPENSES_BY_CURRENCY = gql`
+  query EXPENSES_BY_CURRENCY($startDate: DateTime, $endDate: DateTime) {
+    expensesGroupBy(
+      field: "currency"
+      valueType: "sum"
+      startDate: $startDate
+      endDate: $endDate
+    ) {
+      currency
+      sum
+    }
+  }
+`;

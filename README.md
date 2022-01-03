@@ -37,6 +37,9 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Line chart | For daily income | ✅ |
 | Area chart | Accumulated daily income vs expenses | ✅ |
 | Horizontal bar chart | For expenses by type | ✅ |
+| Vertical bar chart | For expenses by payment type | ✅ |
+| Doughnut chart | Expenses by sub-type | ✅ |
+| Doughnut chart | Expenses by currency | ✅ |
 | Stacked bar chart | Monthly income by type |
 | Stacked bar chart | Monthly expenses by type |
 | Time-series composed area chart   | For daily income vs expenses (starts 2021/01/01) |
@@ -45,8 +48,27 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Flat line | For all time-series chart showing calculated monthly+daily+weekly average income & expenses|
 | Scattered chart | For instances of income & expense over time (count) |
 | Pie chart | For income by currency |
-| Doughnut chart | Daily expenses by sub-type |
-| Horizontal bar chart | For expenses by payment type |
+
+### Authentication
+| Feature | Status |
+| :--- | :---- |
+| Login page UI | ✅ |
+| Forbidden page (403) UI | ✅ |
+| Dashboard page UI (Only for authenticated & authorised users) | ✅ |
+| Loading page UI | ✅ |
+| Create account and login with Google | ✅ |
+| Routing based on page component displayed | ⌛ |
+| Create account and login with username and password | ⌛ |
+| Retrieve password UI | ⌛ |
+
+### Data tables
+| Feature | Status |
+| :--- | :---- |
+| Page UI for income table | ⌛ |
+| UI for editing income table rows| ⌛ |
+| UI for creating new rows in income table | ⌛ |
+| Page UI for expenses table | ⌛ |
+
 
 ##  ✍️ How are charts getting updated - Architectural approach
 | No. | Steps
@@ -56,6 +78,8 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | 3 | Custom chart wrappers pass down fetched & processed data (`labels` and `values`) into `pure chart components`
 | 4 | Each pure chart components populate data (no manual calculation involved)
 | 5 | All chart wrapper that use `reactive variables` will update queries (so will charts update) whenever date-range changes in `Apollo client` store
+
+Note: simply updating apollo store in components from `/reports` using `makrVar` doesn't trigger rerender, but the hook `useReactiveVar` solved this problem.
 
 ## ✨ Infrastructure
 - Netlify (CD\CI)
