@@ -55,16 +55,16 @@ const Dashboard: React.FC = () => {
           <Grid item lg={6} sm={6} xs={12}>
             <AverageDailyExpenses />
           </Grid>
-          <Grid item lg={9} sm={9} xs={12}>
+          <Grid item lg={8} sm={12} xs={12}>
             <IncomeExpensesGrowth />
           </Grid>
-          <Grid item lg={3} sm={3} xs={12}>
-            <IncomeByPaymentMethod />
-          </Grid>
-          <Grid item lg={3} sm={6} xs={12}>
+          <Grid item lg={4} sm={4} xs={12}>
             <IncomePaidBy />
           </Grid>
-          <Grid item lg={3} sm={6} xs={12}>
+          <Grid item lg={3} sm={4} xs={12}>
+            <IncomeByPaymentMethod />
+          </Grid>
+          <Grid item lg={3} sm={4} xs={12}>
             <IncomeByType />
           </Grid>
           <Grid item lg={6} sm={12} xs={12}>
