@@ -110,3 +110,17 @@ export const EXPENSES_BY_TYPE = gql`
     }
   }
 `;
+
+export const EXPENSES_BY_DATE = gql`
+  query EXPENSES_BY_DATE($startDate: DateTime, $endDate: DateTime) {
+    expensesGroupBy(
+      field: "date"
+      valueType: "sum"
+      startDate: $startDate
+      endDate: $endDate
+    ) {
+      date
+      sum
+    }
+  }
+`;
