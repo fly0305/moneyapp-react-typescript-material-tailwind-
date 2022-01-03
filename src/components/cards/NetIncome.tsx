@@ -13,7 +13,7 @@ const NetIncome = () => {
 
   const startDate = s;
   const endDate = e;
-  const { data, loading } = useQuery<NetIncomeQueryResponse>(NET_INCOME, {
+  const { data } = useQuery<NetIncomeQueryResponse>(NET_INCOME, {
     variables: { startDate, endDate },
   });
   const amount = data?.netIncome[0].sum;

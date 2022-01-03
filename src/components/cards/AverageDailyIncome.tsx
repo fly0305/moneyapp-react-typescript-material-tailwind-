@@ -12,12 +12,9 @@ const AverageDailyIncome = () => {
 
   const startDate = s;
   const endDate = e;
-  const { data, loading } = useQuery<AverageIncomeQueryResponse>(
-    AVERAGE_DAILY_INCOME,
-    {
-      variables: { startDate, endDate },
-    },
-  );
+  const { data } = useQuery<AverageIncomeQueryResponse>(AVERAGE_DAILY_INCOME, {
+    variables: { startDate, endDate },
+  });
   const amount = data?.averageIncome[0].average;
   return (
     <Card sx={{ height: '100%' }} variant="outlined">

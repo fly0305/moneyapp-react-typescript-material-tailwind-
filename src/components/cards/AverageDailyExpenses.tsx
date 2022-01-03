@@ -12,7 +12,7 @@ const AverageDailyExpenses = () => {
 
   const startDate = s;
   const endDate = e;
-  const { data, loading } = useQuery<AverageExpensesQueryResponse>(
+  const { data } = useQuery<AverageExpensesQueryResponse>(
     AVERAGE_DAILY_EXPENSES,
     {
       variables: { startDate, endDate },
