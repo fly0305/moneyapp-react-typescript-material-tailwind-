@@ -1,7 +1,9 @@
 import { makeVar, InMemoryCache } from '@apollo/client';
 
-export const startDateVar = makeVar(new Date('2021-01-01').toString());
+// set start date as 30 days before "today"
+const s = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 export const endDateVar = makeVar(new Date().toString());
+export const startDateVar = makeVar(s.toString());
 
 export const Cache = new InMemoryCache({
   typePolicies: {

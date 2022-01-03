@@ -25,7 +25,7 @@ const TotalIncome = () => {
               Total Income
             </Typography>
             <Typography color="green" variant="h5">
-              + $ {amount ? amount.toFixed(2) : 'Undefined'} NZD
+              + $ {amount ? amount.toFixed(2) : 'Loading'} NZD
             </Typography>
           </Grid>
           <Grid item>

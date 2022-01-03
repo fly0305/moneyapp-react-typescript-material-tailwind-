@@ -28,7 +28,7 @@ const AverageDailyIncome = () => {
               Average Daily Income
             </Typography>
             <Typography color="green" variant="h5">
-              + $ {loading ? 'Loading...' : amount} NZD
+              + $ {amount ? amount.toFixed(2) : 'Loading'} NZD
             </Typography>
           </Grid>
           <Grid item>

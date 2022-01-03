@@ -30,9 +30,10 @@ const NetIncome = () => {
               variant="h5"
             >
               {isPositive(amount) ? '+ $ ' : '- $ '}
-              {loading
-                ? 'Loading...'
-                : amount?.toString().slice(1, amount.toString().length)}
+              {amount
+                ? amount?.toString().slice(1, amount.toString().length)
+                : 'Loading'}{' '}
+              NZD
             </Typography>
           </Grid>
           <Grid item>
