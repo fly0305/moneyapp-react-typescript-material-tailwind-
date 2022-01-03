@@ -50,24 +50,30 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Pie chart | For income by currency |
 
 ### Authentication
-| Feature | Status |
-| :--- | :---- |
-| Login page UI | ✅ |
-| Forbidden page (403) UI | ✅ |
-| Dashboard page UI (Only for authenticated & authorised users) | ✅ |
-| Loading page UI | ✅ |
-| Create account and login with Google | ✅ |
-| Routing based on page component displayed | ⌛ |
-| Create account and login with username and password | ⌛ |
-| Retrieve password UI | ⌛ |
+| Domain | Feature | Status |
+| :--- | :--- | :---- |
+| UI | Login page UI | ✅ |
+| UI | Forbidden page (403) UI | ✅ |
+| UI | Dashboard page UI (Only for authenticated & authorised users) | ✅ |
+| UI | Loading page UI | ✅ |
+| Auth0 | Create account and login with Google | ✅ |
+| Routing | Routing based on page component displayed | ⌛ |
+| Auth0 | Create account and login with username and password | ⌛ |
+| Auth0 | Retrieve password UI | ⌛ |
 
 ### Data tables
-| Feature | Status |
-| :--- | :---- |
-| Page UI for income table | ⌛ |
-| UI for editing income table rows| ⌛ |
-| UI for creating new rows in income table | ⌛ |
-| Page UI for expenses table | ⌛ |
+| Domain | Feature | Status |
+| :--- | :--- | :---- |
+| UI | Page UI for income table | ⌛ |
+| UI | UI for editing income table rows | ⌛ |
+| API | Form validation for editing rows in income table | ⌛ |
+| UI | UI for creating new rows in income table | ⌛ |
+| API | Form validation for creating new rows in income table | ⌛ |
+| UI | Page UI for expenses table | ⌛ |
+| UI | UI for editing expenses table rows | ⌛ |
+| API | Form validation for editing rows in expenses table | ⌛ |
+| UI | UI for creating new rows in expenses table | ⌛ |
+| API | Form validation for creating new rows in income table | ⌛ |
 
 
 ##  ✍️ How are charts getting updated - Architectural approach
