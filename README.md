@@ -21,9 +21,11 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Category | Feature | Status |
 | :--- | :---- | :---- |
 | Date-range picker | Updates global date range values, which in tern will update all components that are using global date-range values | ✅ |
-| Card | Display total income between selected date-range | ✅ |
-| Card | Display total expenses between selected date-range | ✅ |
-| Card | Display net-income between selected date-range | ✅ |
+| Card | Display total income | ✅ |
+| Card | Display total expenses | ✅ |
+| Card | Display net-income | ✅ |
+| Card | Display average daily income | ✅ |
+| Card | Display average daily expenses | ✅ |
 | Animation | Auto-increment amounts on all cards from zero on page-load in 1s | ⌛ |
 
 ### Dynamic charts
@@ -33,8 +35,8 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Doughnut chart | For income by income type | ✅ |
 | Doughnut chart | For income by "paid by" | ✅ |
 | Line chart | For daily income | ✅ |
-| Line chart | Accumulated income growth by date |
-| Line chart | Accumulated expenses by date |
+| Area chart | Accumulated daily income vs expenses | ✅ |
+| Horizontal bar chart | For expenses by type | ✅ |
 | Stacked bar chart | Monthly income by type |
 | Stacked bar chart | Monthly expenses by type |
 | Time-series composed area chart   | For daily income vs expenses (starts 2021/01/01) |
@@ -43,8 +45,7 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Flat line | For all time-series chart showing calculated monthly+daily+weekly average income & expenses|
 | Scattered chart | For instances of income & expense over time (count) |
 | Pie chart | For income by currency |
-| Vertical bar chart | For expenses by type (sortable) |
-| Doughnut chart | For expenses by sub-type |
+| Doughnut chart | Daily expenses by sub-type |
 | Horizontal bar chart | For expenses by payment type |
 
 ##  ✍️ How are charts getting updated - Architectural approach
