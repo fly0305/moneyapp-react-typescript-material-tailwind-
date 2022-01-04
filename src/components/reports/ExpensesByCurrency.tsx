@@ -1,11 +1,11 @@
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { ChartContainer } from 'components/ChartContainer';
-import BarChart from 'components/charts/BarChart';
+import DoughnutChart from 'components/charts/DoughnutChart';
 import { startDateVar, endDateVar } from 'graphql/Cache';
-import { EXPENSES_BY_TYPE } from 'graphql/Queries';
+import { EXPENSES_BY_CURRENCY } from 'graphql/Queries';
 import { ExpensesGroupByQueryResponse } from 'graphql/Queries.dto';
 
-const ExpensesByType: React.FC = () => {
+const ExpensesByCurrency: React.FC = () => {
   const s = useReactiveVar(startDateVar);
   const e = useReactiveVar(endDateVar);
 
@@ -13,7 +13,7 @@ const ExpensesByType: React.FC = () => {
   const endDate = e;
 
   const { data, loading } = useQuery<ExpensesGroupByQueryResponse>(
-    EXPENSES_BY_TYPE,
+    EXPENSES_BY_CURRENCY,
     {
       variables: { startDate, endDate },
     },
@@ -21,23 +21,18 @@ const ExpensesByType: React.FC = () => {
 
   const d = data?.expensesGroupBy;
   // console.log(d);
-  const labels = d?.map((item) => item.expenseType);
+  const labels = d?.map((item) => item.currency);
   const values = d?.map((item) => item.sum);
   return (
     <>
       <ChartContainer
-        title={'Expenses by type'}
+        title={'Expenses by currency'}
         component={
-          <BarChart
-            labels={labels}
-            values={values}
-            type="horizontal"
-            loading={loading}
-          />
+          <DoughnutChart labels={labels} values={values} loading={loading} />
         }
       />
     </>
   );
 };
 
-export default ExpensesByType;
+export default ExpensesByCurrency;

@@ -6,8 +6,13 @@ export interface ChartProps {
 }
 
 export interface DataSet {
-  labels: string;
-  data: number[];
+  labels?: string;
+  name?: string;
+  data: number[] | any;
   borderColor?: string;
   backgroundColor?: string;
+}
+
+export interface BarChartProps extends ChartProps {
+  type: 'horizontal' | 'vertical';
 }

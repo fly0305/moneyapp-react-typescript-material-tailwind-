@@ -1,39 +1,31 @@
 import { useQuery, useReactiveVar } from '@apollo/client';
-import PaidIcon from '@mui/icons-material/Paid';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
-import { endDateVar, startDateVar } from 'graphql/Cache';
-import { NET_INCOME } from 'graphql/Queries';
-import { NetIncomeQueryResponse } from 'graphql/Queries.dto';
-import { isPositive } from 'util/isPositive';
+import { startDateVar, endDateVar } from 'graphql/Cache';
+import { AVERAGE_DAILY_INCOME } from 'graphql/Queries';
+import { AverageIncomeQueryResponse } from 'graphql/Queries.dto';
 
-const NetIncome = () => {
+const AverageDailyIncome = () => {
   const s = useReactiveVar(startDateVar);
   const e = useReactiveVar(endDateVar);
 
   const startDate = s;
   const endDate = e;
-  const { data } = useQuery<NetIncomeQueryResponse>(NET_INCOME, {
+  const { data } = useQuery<AverageIncomeQueryResponse>(AVERAGE_DAILY_INCOME, {
     variables: { startDate, endDate },
   });
-  const amount = data?.netIncome[0].sum;
+  const amount = data?.averageIncome[0].average;
   return (
     <Card sx={{ height: '100%' }} variant="outlined">
       <CardContent>
         <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
           <Grid item>
             <Typography color="textSecondary" gutterBottom variant="h6">
-              Net Income
+              Average Daily Income
             </Typography>
-            <Typography
-              color={isPositive(amount) ? 'green' : 'red'}
-              variant="h5"
-            >
-              {isPositive(amount) ? '+ $ ' : '- $ '}
-              {amount
-                ? amount?.toString().slice(1, amount.toString().length)
-                : 'Loading'}{' '}
-              NZD
+            <Typography color="green" variant="h5">
+              + $ {amount ? amount.toFixed(2) : 'Loading'} NZD
             </Typography>
           </Grid>
           <Grid item>
@@ -44,7 +36,7 @@ const NetIncome = () => {
                 width: 56,
               }}
             >
-              <PaidIcon />
+              <ArrowCircleDownIcon />
             </Avatar>
           </Grid>
         </Grid>
@@ -52,4 +44,4 @@ const NetIncome = () => {
     </Card>
   );
 };
-export default NetIncome;
+export default AverageDailyIncome;
