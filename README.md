@@ -36,16 +36,14 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Doughnut chart | For income by "paid by" | ✅ |
 | Line chart | For daily income | ✅ |
 | Area chart | Accumulated daily income vs expenses | ✅ |
-| Horizontal bar chart | For expenses by type | ✅ |
-| Vertical bar chart | For expenses by payment type | ✅ |
+| Bar chart - horizontal | For expenses by type | ✅ |
+| Bar chart - horizontal | For expenses by payment type | ✅ |
 | Doughnut chart | Expenses by sub-type | ✅ |
 | Doughnut chart | Expenses by currency | ✅ |
-| Stacked bar chart | Monthly income by type |
-| Stacked bar chart | Monthly expenses by type |
-| Time-series composed area chart   | For daily income vs expenses (starts 2021/01/01) |
-| Time-series composed bar chart | For monthly income vs expenses (starts Jan 2021)|
-| Time-series composed line chart  | for weekly income vs expenses (starts 2021/01/01) |
-| Flat line | For all time-series chart showing calculated monthly+daily+weekly average income & expenses|
+| Bar chart - stacked + vertical | Monthly income by type |
+| Bar chart - stacked + vertical | Monthly expenses by type |
+| Bar chart - grouped + horizontal | Monthly income vs expenses (starts Jan 2021)|
+| Area chart  | Weekly income vs expenses (starts 2021/01/01) |
 | Scattered chart | For instances of income & expense over time (count) |
 | Pie chart | For income by currency |
 
