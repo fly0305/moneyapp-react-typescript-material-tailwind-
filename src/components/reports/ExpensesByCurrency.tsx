@@ -1,9 +1,9 @@
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { ChartContainer } from 'components/ChartContainer';
 import DoughnutChart from 'components/charts/DoughnutChart';
+import { ExpensesGroupByQueryResponse } from 'dto/Queries.dto';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { EXPENSES_BY_CURRENCY } from 'graphql/Queries';
-import { ExpensesGroupByQueryResponse } from 'graphql/Queries.dto';
 
 const ExpensesByCurrency: React.FC = () => {
   const s = useReactiveVar(startDateVar);

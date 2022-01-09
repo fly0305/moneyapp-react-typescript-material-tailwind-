@@ -1,9 +1,9 @@
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { ChartContainer } from 'components/ChartContainer';
 import DoughnutChart from 'components/charts/DoughnutChart';
+import { IncomeGroupByQueryResponse } from 'dto/Queries.dto';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { INCOME_BY_PAYMENT_METHOD } from 'graphql/Queries';
-import { IncomeGroupByQueryResponse } from 'graphql/Queries.dto';
 
 const IncomeByPaymentMethod: React.FC = () => {
   const s = useReactiveVar(startDateVar);

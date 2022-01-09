@@ -2,9 +2,9 @@ import { useQuery, useReactiveVar } from '@apollo/client';
 import PaidIcon from '@mui/icons-material/Paid';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
+import { NetIncomeQueryResponse } from 'dto/Queries.dto';
 import { endDateVar, startDateVar } from 'graphql/Cache';
 import { NET_INCOME } from 'graphql/Queries';
-import { NetIncomeQueryResponse } from 'graphql/Queries.dto';
 import { isPositive } from 'util/isPositive';
 
 const NetIncome = () => {

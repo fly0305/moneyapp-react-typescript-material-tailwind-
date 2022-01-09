@@ -1,14 +1,14 @@
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { ChartContainer } from 'components/ChartContainer';
 import AreaChart from 'components/charts/AreaChart';
+import { DataSet } from 'dto/Charts.dto';
+import {
+  IncomeGroupByQueryResponse,
+  ExpensesGroupByQueryResponse,
+} from 'dto/Queries.dto';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { EXPENSES_BY_DATE, INCOME_BY_DATE } from 'graphql/Queries';
-import {
-  ExpensesGroupByQueryResponse,
-  IncomeGroupByQueryResponse,
-} from 'graphql/Queries.dto';
 import { cumulativeSum } from 'util/cumulativeSum';
-import { DataSet } from '../charts/Chart.dto';
 
 const IncomeExpensesGrowth: React.FC = () => {
   const s = useReactiveVar(startDateVar);

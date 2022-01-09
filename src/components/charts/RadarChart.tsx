@@ -9,8 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-import { ChartProps } from './Chart.dto';
 import { CircularProgress } from '@mui/material';
+import { ChartProps } from 'dto/Charts.dto';
 
 ChartJS.register(
   RadialLinearScale,

@@ -2,9 +2,9 @@ import { useQuery, useReactiveVar } from '@apollo/client';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
+import { IncomeSumQueryResponse } from 'dto/Queries.dto';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { INCOME_SUM } from 'graphql/Queries';
-import { IncomeSumQueryResponse } from 'graphql/Queries.dto';
 
 const TotalIncome = () => {
   const s = useReactiveVar(startDateVar);

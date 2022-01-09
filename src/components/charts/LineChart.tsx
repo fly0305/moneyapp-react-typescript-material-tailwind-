@@ -12,7 +12,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import faker from 'faker';
 import { CircularProgress } from '@mui/material';
-import { ChartProps } from './Chart.dto';
+import { ChartProps } from 'dto/Charts.dto';
 
 ChartJS.register(
   CategoryScale,

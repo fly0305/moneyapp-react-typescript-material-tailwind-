@@ -8,8 +8,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { BarChartProps } from 'dto/Charts.dto';
 import { Bar } from 'react-chartjs-2';
-import { BarChartProps } from './Chart.dto';
 
 ChartJS.register(
   CategoryScale,

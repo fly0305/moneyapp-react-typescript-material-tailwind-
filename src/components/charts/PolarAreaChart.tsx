@@ -6,8 +6,8 @@ import {
   Legend,
   RadialLinearScale,
 } from 'chart.js';
+import { ChartProps } from 'dto/Charts.dto';
 import { PolarArea } from 'react-chartjs-2';
-import { ChartProps } from './Chart.dto';
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 

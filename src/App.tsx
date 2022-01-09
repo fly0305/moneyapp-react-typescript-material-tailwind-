@@ -8,9 +8,9 @@ import * as dotenv from 'dotenv';
 import Login from 'pages/Login';
 import Loading from 'pages/Loading';
 import jwt from 'jwt-decode';
-import { DecodedJwt } from 'auth0/Auth0.dto';
 import Forbidden from 'pages/Forbidden';
 import { Cache } from './graphql/Cache';
+import { DecodedJwt } from 'dto/Auth0.dto';
 dotenv.config({ path: __dirname + '.env' });
 
 const App: React.FC = () => {

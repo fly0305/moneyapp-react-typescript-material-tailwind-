@@ -1,9 +1,9 @@
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { ChartContainer } from 'components/ChartContainer';
 import LineChart from 'components/charts/LineChart';
+import { IncomeGroupByQueryResponse } from 'dto/Queries.dto';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { INCOME_BY_DATE } from 'graphql/Queries';
-import { IncomeGroupByQueryResponse } from 'graphql/Queries.dto';
 import { cumulativeSum } from 'util/cumulativeSum';
 
 const IncomeByDate: React.FC = () => {

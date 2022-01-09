@@ -4,7 +4,7 @@ import { blue } from '@mui/material/colors';
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import { AVERAGE_DAILY_EXPENSES } from 'graphql/Queries';
-import { AverageExpensesQueryResponse } from 'graphql/Queries.dto';
+import { AverageExpensesQueryResponse } from 'dto/Queries.dto';
 
 const AverageDailyExpenses = () => {
   const s = useReactiveVar(startDateVar);

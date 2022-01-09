@@ -1,5 +1,5 @@
+import { ChartProps } from 'dto/Charts.dto';
 import ReactApexChart from 'react-apexcharts';
-import { ChartProps } from './Chart.dto';
 
 const demoSeries = [
   {

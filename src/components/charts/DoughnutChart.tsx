@@ -2,7 +2,7 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { CircularProgress } from '@mui/material';
-import { ChartProps } from './Chart.dto';
+import { ChartProps } from 'dto/Charts.dto';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
