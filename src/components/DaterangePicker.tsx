@@ -6,7 +6,6 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Box from '@mui/material/Box';
 import { startDateVar, endDateVar } from 'graphql/Cache';
 import Stack from '@mui/material/Stack';
-import DaterangeFilterButton from './ApplyDaterangeFilterButton';
 import { useReactiveVar } from '@apollo/client';
 
 export default function BasicDateRangePicker() {
@@ -27,6 +26,15 @@ export default function BasicDateRangePicker() {
     startDateVar(value[0]?.toString());
     endDateVar(value[1]?.toString());
   };
+
+  // checks whether need to enable filter button
+  // Only enable (return true) when local state is not the same as reactiveVars
+  const checkToDisable = () => {
+    return value[0]?.toString() === s && value[1]?.toString() === e;
+  };
+
+  const disabled = checkToDisable();
+  console.log(`disbaled: ${disabled}`);
 
   return (
     <Stack direction="row" spacing={2}>
@@ -49,9 +57,17 @@ export default function BasicDateRangePicker() {
           />
         </LocalizationProvider>
       </div>
-      <div onClick={applyDateRangeFilter}>
-        <DaterangeFilterButton />
-      </div>
+      <button
+        className={
+          !disabled
+            ? 'h-12 px-6 text-indigo-100 transition-colors duration-350 bg-green-600 rounded-lg focus:shadow-outline hover:bg-yellow-500'
+            : 'h-12 px-6 text-indigo-100 bg-gray-500 rounded-lg focus:shadow-outline'
+        }
+        onClick={applyDateRangeFilter}
+        disabled={disabled}
+      >
+        Apply filter
+      </button>
     </Stack>
   );
 }
