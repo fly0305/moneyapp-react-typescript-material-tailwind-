@@ -32,9 +32,7 @@ export default function BasicDateRangePicker() {
   const checkToDisable = () => {
     return value[0]?.toString() === s && value[1]?.toString() === e;
   };
-
   const disabled = checkToDisable();
-  console.log(`disbaled: ${disabled}`);
 
   return (
     <Stack direction="row" spacing={2}>
