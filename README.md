@@ -40,12 +40,12 @@ GraphQL API written in NestJS [here](https://github.com/Mingyang-Li/moneyapp-api
 | Bar chart - horizontal | For expenses by payment type | ✅ |
 | Doughnut chart | Expenses by sub-type | ✅ |
 | Doughnut chart | Expenses by currency | ✅ |
+| Pie chart | For income by currency | ✅ |
 | Bar chart - stacked + vertical | Monthly income by type |
 | Bar chart - stacked + vertical | Monthly expenses by type |
 | Bar chart - grouped + horizontal | Monthly income vs expenses (starts Jan 2021)|
 | Area chart  | Weekly income vs expenses (starts 2021/01/01) |
 | Scattered chart | For instances of income & expense over time (count) |
-| Pie chart | For income by currency |
 
 ### Authentication
 | Domain | Feature | Status |
